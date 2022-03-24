@@ -1,0 +1,70 @@
+$spacers: (
+	0: 0,
+	4: 4px,
+	8: 8px,
+	9: 9px,
+	10: 10px,
+	11: 11px,
+	12: 12px,
+	14: 14px,
+	16: 16px,
+	20: 20px,
+	24: 24px,
+	30: 30px,
+	40: 40px,
+	60: 60px,
+	80: 80px,
+	120: 120px,
+	180: 180px
+);
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px
+);
+$container-max-widths: (
+	sm: 500px,
+	md: 688px,
+	lg: 920px,
+	xl: 1100px,
+	xxl: 1360px
+);
+$grid-gutter-width: 2.5rem;
+
+$secondary: $color-grey;
+$info: $color-blue;
+$light: $color-grey-light;
+$success: #36cf38;
+$danger: #f00;
+
+$border-color: #ededed;
+
+$border-radius: 20px;
+
+$dropdown-border-width: 0;
+$dropdown-border-radius: 10px;
+$dropdown-spacer: 8px;
+$dropdown-item-padding-x: 24px;
+$dropdown-item-padding-y: 12px;
+$dropdown-link-hover-bg: $color-grey-light;
+$dropdown-link-active-bg: $color-grey-light;
+$dropdown-link-active-color: $color-black;
+
+$modal-backdrop-opacity: 1;
+$modal-content-border-width: 0;
+$modal-content-border-radius: 40px;
+$modal-inner-padding: 0.5rem;
+
+$form-select-font-size: 1.125rem;
+$form-select-border-radius: 1.25rem;
+$form-select-padding-y: 0.75rem;
+$form-select-padding-x: 1.25rem;
+$form-select-indicator-padding: 2.75rem;
+$form-select-line-height: 1;
+$form-select-border-color: $color-grey;
+$form-select-indicator-color: $color-black;
+$form-select-focus-box-shadow: none;
+$form-select-focus-border-color: $color-black;

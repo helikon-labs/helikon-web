@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+    @@include("../views/parts/head.html", { "title": "Helikon" })
+    <body>
+        <section class="hero">
+            <lottie-player class="hero__bg" src="files/hero.json" autoplay loop mode="normal"></lottie-player>
+            <div class="container d-flex flex-column align-items-center">
+                <a class="hero__logo flex-shrink-0" href="/" aria-label="Helikon home page">
+                    <img src="img/helikon-logo-sign.svg" alt="Helikon logotype" width="124" height="124" />
+                </a>
+                <div class="hero__text flex-grow-1 py-60">
+                    <h1>
+                        We are
+                        <span><img src="img/helikon-logo-name.svg" alt="Helikon name" width="231" height="37" /></span>
+                        , a crypto-native blockchain company from Istanbul.
+                    </h1>
+                    <div class="hstack flex-wrap align-items-center justify-content-center gap-20 mt-40">
+                        <a class="btn btn-primary btn-lg" href="#products">See our products</a>
+                        <a class="btn btn-outline btn-lg" href="#validators">Stake with us!</a>
+                    </div>
+                </div>
+                <button class="btn btn-link hero__down flex-shrink-0" type="button" aria-label="Scroll to down">
+                    <img src="img/svg/arrow-down.svg" alt="Arrow down" width="40" height="90" />
+                </button>
+            </div>
+        </section>
+
+        <section class="section about_section">
+            <div class="container">
+                <div class="about__grid">
+                    <div class="about-item about-item--style-squares">
+                        <div class="about-item__content">
+                            <div class="text text-md">
+                                <p>
+                                    We build
+                                    <strong>beautiful, robust, open-source software</strong>
+                                    for the Polkadot and Kusama blockchain networks.
+                                </p>
+                                <p>We are proudly supported by the Web3 Foundation and the Kusama Treasury.</p>
+                            </div>
+                            <div class="hstack flex-wrap gap-24 gap-sm-40 mt-20">
+                                <img
+                                    src="img/kusama-logo-supported.svg"
+                                    alt="Kusama logotype"
+                                    width="130"
+                                    height="45" />
+                                <img src="img/web3-logo-name.svg" alt="Web3 logotype" width="118" height="45" />
+                            </div>
+                            <a class="btn btn-primary mt-40" href="#products">See our products below</a>
+                        </div>
+                    </div>
+
+                    <div class="about-item about-item--style-validator">
+                        <div class="about-item__content">
+                            <div class="hstack flex-wrap gap-20 mb-30 mb-sm-40">
+                                <img src="img/polkadot-logo-name.svg" alt="Polkadot logotype" width="148" height="32" />
+                                <img src="img/kusama-logo-name.svg" alt="Kusama logotype" width="114" height="27" />
+                            </div>
+                            <div class="text text-md">
+                                <p>
+                                    We run
+                                    <strong>secure and powerful</strong>
+                                    Polkadot and Kusama validators.
+                                </p>
+                                <p>
+                                    Meet our validators below,
+                                    <strong>securely stake with us</strong>
+                                    and support decentralization.
+                                </p>
+                            </div>
+                            <a class="btn btn-outline mt-30 mt-sm-40" href="#validators">Stake with us!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section products_section" id="products">
+            <div class="container">
+                <h2>Products</h2>
+                <div class="swiper products__carousel mt-40 mt-md-60" id="productsCarousel">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="product-item product-item--style-subvt">
+                                <div class="product-item__content">
+                                    <img
+                                        class="product-item__logotype"
+                                        src="img/projects/subvt/subvt-logo.svg"
+                                        alt="SubVT logotype"
+                                        width="169"
+                                        height="46" />
+                                    <div class="product-item__description text text-sm mt-30 mt-md-40">
+                                        <p>
+                                            SubVT (Substrate Validator Toolkit) is a native mobile application for iOS
+                                            and Android phones, tablets and wearables that provides node operators with
+                                            tools that aid them in running their validators on any Substrate-based
+                                            blockchain network.
+                                        </p>
+                                        <p>
+                                            <small>
+                                                Development of SubVT is proudly supported by the Kusama Treasury through
+                                                on-chain motions #426 and #326.
+                                            </small>
+                                        </p>
+                                    </div>
+                                    <div class="product-item__panel hstack flex-wrap gap-14 align-items-center mt-40">
+                                        <a class="btn btn-white btn-sm py-10 px-16 text-sm" href="#">
+                                            <svg class="icon" aria-hidden="true">
+                                                <use xlink:href="img/sprite.svg#link"></use>
+                                            </svg>
+                                            <span>subvt.com</span>
+                                        </a>
+                                        <a
+                                            class="btn btn-white btn-icon btn-sm py-9 px-16 text-sm"
+                                            href="#"
+                                            aria-label="Github link">
+                                            <img src="img/github-logo-sign.svg" alt="Github logo" />
+                                        </a>
+                                        <a class="ms-auto" href="#">
+                                            <img
+                                                src="img/projects/subvt/kusama-logo-supported.svg"
+                                                alt="Kusama logo"
+                                                width="113"
+                                                height="39" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="product-item__shape">
+                                    <img
+                                        src="img/projects/subvt/subvt-shape.png"
+                                        alt="Subvt shape"
+                                        aria-hidden="true"
+                                        width="400"
+                                        height="400" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="product-item product-item--style-1kv">
+                                <div class="product-item__content">
+                                    <h4>1KV Telegram Bot</h4>
+                                    <div class="product-item__description text text-sm mt-30 mt-md-40">
+                                        <p>
+                                            A telegram bot for the validators enrolled in the Polkadot and Kusama
+                                            Thousand Validators (1KV) Programme. You may find Polkadot bot available for
+                                            chat
+                                            <a href="#"><strong>here</strong></a>
+                                            , and the Kusama bot
+                                            <a href="#"><strong>here</strong></a>
+                                            .
+                                        </p>
+                                        <p>
+                                            1KV Telegram bot is currently being upgraded to serve all validators of
+                                            Polkadot and Kusama with increased functionality, an effort proudly
+                                            supported by the
+                                            <strong>Web3 Foundation</strong>
+                                            .
+                                        </p>
+                                    </div>
+                                    <div class="product-item__panel hstack flex-wrap gap-14 align-items-center mt-40">
+                                        <a class="btn btn-white btn-sm py-8 px-16 text-sm" href="#">
+                                            <img src="img/kusama-logo-sign.svg" alt="Kusama logotype" />
+                                            <span>Kusama bot</span>
+                                        </a>
+                                        <a class="btn btn-white btn-sm py-8 px-16 text-sm" href="#">
+                                            <img src="img/polkadot-logo-sign.svg" alt="Polkadot logotype" />
+                                            <span>Polkadot bot</span>
+                                        </a>
+                                        <a
+                                            class="btn btn-white btn-icon btn-sm py-9 px-16 text-sm"
+                                            href="#"
+                                            aria-label="Github link">
+                                            <img src="img/github-logo-sign.svg" alt="Github logo" />
+                                        </a>
+                                        <a class="ms-auto" href="#">
+                                            <img
+                                                src="img/projects/1kv/web3-logo-name.svg"
+                                                alt="web3 logo"
+                                                width="91"
+                                                height="35" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="product-item__shape">
+                                    <img
+                                        src="img/projects/1kv/1kv-shape.svg"
+                                        alt="1KV shape"
+                                        aria-hidden="true"
+                                        width="400"
+                                        height="400" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="product-item product-item--style-chainviz">
+                                <div class="product-item__content">
+                                    <h4>ChainViz</h4>
+                                    <div class="product-item__description text text-sm mt-30 mt-md-40">
+                                        <p>
+                                            ChainViz is a real-time 3D chain visualization web application for Kusama.
+                                        </p>
+                                        <p>
+                                            ChainViz is a work in progress, and the currently released alpha version
+                                            visualizes in real-time the block production process, network status and
+                                            validators statistics of the Kusama network.
+                                        </p>
+                                    </div>
+                                    <div class="product-item__panel hstack flex-wrap gap-14 align-items-center mt-40">
+                                        <a class="btn btn-white btn-sm py-10 px-16 text-sm" href="#">
+                                            <svg class="icon" aria-hidden="true">
+                                                <use xlink:href="img/sprite.svg#link"></use>
+                                            </svg>
+                                            <span>chainviz.com</span>
+                                        </a>
+                                        <a
+                                            class="btn btn-white btn-icon btn-sm py-9 px-16 text-sm"
+                                            href="#"
+                                            aria-label="Github link">
+                                            <img src="img/github-logo-sign.svg" alt="Github logo" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="product-item__shape">
+                                    <div>
+                                        <img
+                                            src="img/projects/chainviz/chainviz-shape.svg"
+                                            alt="Chainviz shape"
+                                            aria-hidden="true"
+                                            width="400"
+                                            height="400" />
+                                    </div>
+                                    <img
+                                        src="img/projects/chainviz/chainviz-shape.svg"
+                                        alt="Chainviz shape"
+                                        aria-hidden="true"
+                                        width="400"
+                                        height="400" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination mt-40 mt-md-60"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section validators_section" id="validators">
+            <lottie-player class="validators__bg" src="files/hero.json" autoplay loop mode="normal"></lottie-player>
+            <div class="container">
+                <h2 class="text-center">Validators</h2>
+                <div class="nav hstack gap-20 gap-md-24 justify-content-center mt-40 mt-md-60">
+                    <button
+                        class="btn btn-white btn-lg py-8 px-16 active"
+                        data-bs-toggle="tab"
+                        data-bs-target="#kusama"
+                        type="button"
+                        role="tab"
+                        aria-controls="kusama"
+                        aria-selected="true">
+                        <img
+                            class="btn-invert"
+                            src="img/kusama-logo-sign.svg"
+                            alt="Kusama logotype"
+                            width="32"
+                            height="32" />
+                        <span>Kusama</span>
+                    </button>
+                    <button
+                        class="btn btn-white btn-lg py-8 px-16"
+                        data-bs-toggle="tab"
+                        data-bs-target="#polkadot"
+                        type="button"
+                        role="tab"
+                        aria-controls="polkadot"
+                        aria-selected="false">
+                        <img src="img/polkadot-logo-sign.svg" alt="Polkadot logotype" width="32" height="32" />
+                        <span>Polkadot</span>
+                    </button>
+                </div>
+                <div class="tab-content mt-80 mt-md-120">
+                    <div class="tab-pane fade show active" id="kusama" role="tabpanel" aria-labelledby="kusama-tab">
+                        <div class="swiper validators__carousel">
+                            <div class="swiper-wrapper justify-content-xl-center gap-xl-40">
+                                <div class="swiper-slide">
+                                    <div class="validator-item">
+                                        <div class="validator-item__content">
+                                            <h4>ISTANBUL</h4>
+                                            <div class="vstack gap-12 text-sm my-30 my-md-40">
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Identity:</div>
+                                                    <div class="col">🏔️ HELIKON 🏔️ / ISTANBUL</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Address:</div>
+                                                    <div class="col">Cb3ZF5...M3XkGY (link)</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Active Since:</div>
+                                                    <div class="col">7th of January, 2021</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Location:</div>
+                                                    <div class="col">
+                                                        <div class="d-inline-flex gap-4 align-items-center">
+                                                            <button
+                                                                class="btn btn-link link"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#modalMap"
+                                                                type="button">
+                                                                Istanbul
+                                                            </button>
+                                                            <svg class="icon" aria-hidden="true">
+                                                                <use xlink:href="img/sprite.svg#location"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0 mt-16">
+                                                    <div class="col-sm-5 text-secondary">Eras Active:</div>
+                                                    <div class="col">64/128</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Blocks Produced:</div>
+                                                    <div class="col">173</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Rewards Distributed:</div>
+                                                    <div class="col">22.3452 KSM</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Rewards Earned:</div>
+                                                    <div class="col">11.5142 KSM</div>
+                                                </div>
+                                            </div>
+                                            <button
+                                                class="btn btn-primary btn-lg"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalValidator"
+                                                type="button">
+                                                Stake
+                                            </button>
+                                        </div>
+                                        <div class="validator-item__shape">
+                                            <img src="img/validators/1.svg" alt="Validator shape" aria-hidden="true" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="validator-item">
+                                        <div class="validator-item__content">
+                                            <h4>MELIDA</h4>
+                                            <div class="vstack gap-12 text-sm my-30 my-md-40">
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Identity:</div>
+                                                    <div class="col">🏔️ HELIKON 🏔️ / MELIDA</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Address:</div>
+                                                    <div class="col">Cb3ZF5...M3XkGY (link)</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Active Since:</div>
+                                                    <div class="col">7th of January, 2021</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Location:</div>
+                                                    <div class="col">
+                                                        <div class="d-inline-flex gap-4 align-items-center">
+                                                            <button
+                                                                class="btn btn-link link"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#modalMap"
+                                                                type="button">
+                                                                Istanbul
+                                                            </button>
+                                                            <svg class="icon" aria-hidden="true">
+                                                                <use xlink:href="img/sprite.svg#location"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0 mt-16">
+                                                    <div class="col-sm-5 text-secondary">Eras Active:</div>
+                                                    <div class="col">64/128</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Blocks Produced:</div>
+                                                    <div class="col">173</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Rewards Distributed:</div>
+                                                    <div class="col">22.3452 KSM</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Rewards Earned:</div>
+                                                    <div class="col">11.5142 KSM</div>
+                                                </div>
+                                            </div>
+                                            <button
+                                                class="btn btn-primary btn-lg"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalValidator"
+                                                type="button">
+                                                Stake
+                                            </button>
+                                        </div>
+                                        <div class="validator-item__shape">
+                                            <img src="img/validators/2.svg" alt="Validator shape" aria-hidden="true" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination justify-content-center mt-30 mt-md-60"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="polkadot" role="tabpanel" aria-labelledby="polkadot-tab">
+                        <div class="swiper validators__carousel">
+                            <div class="swiper-wrapper justify-content-xl-center gap-xl-40">
+                                <div class="swiper-slide">
+                                    <div class="validator-item">
+                                        <div class="validator-item__content">
+                                            <h4>ISTANBUL 1</h4>
+                                            <div class="vstack gap-12 text-sm my-30 my-md-40">
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Identity:</div>
+                                                    <div class="col">🏔️ HELIKON 🏔️ / ISTANBUL</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Address:</div>
+                                                    <div class="col">Cb3ZF5...M3XkGY (link)</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Active Since:</div>
+                                                    <div class="col">7th of January, 2021</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Location:</div>
+                                                    <div class="col">
+                                                        <div class="d-inline-flex gap-4 align-items-center">
+                                                            <button
+                                                                class="btn btn-link link"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#modalMap"
+                                                                type="button">
+                                                                Istanbul
+                                                            </button>
+                                                            <svg class="icon" aria-hidden="true">
+                                                                <use xlink:href="img/sprite.svg#location"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0 mt-16">
+                                                    <div class="col-sm-5 text-secondary">Eras Active:</div>
+                                                    <div class="col">64/128</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Blocks Produced:</div>
+                                                    <div class="col">173</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Rewards Distributed:</div>
+                                                    <div class="col">22.3452 KSM</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Rewards Earned:</div>
+                                                    <div class="col">11.5142 KSM</div>
+                                                </div>
+                                            </div>
+                                            <button
+                                                class="btn btn-primary btn-lg"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalValidator"
+                                                type="button">
+                                                Stake
+                                            </button>
+                                        </div>
+                                        <div class="validator-item__shape">
+                                            <img src="img/validators/1.svg" alt="Validator shape" aria-hidden="true" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="validator-item">
+                                        <div class="validator-item__content">
+                                            <h4>MELIDA 1</h4>
+                                            <div class="vstack gap-12 text-sm my-30 my-md-40">
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Identity:</div>
+                                                    <div class="col">🏔️ HELIKON 🏔️ / MELIDA</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Address:</div>
+                                                    <div class="col">Cb3ZF5...M3XkGY (link)</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Active Since:</div>
+                                                    <div class="col">7th of January, 2021</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Location:</div>
+                                                    <div class="col">
+                                                        <div class="d-inline-flex gap-4 align-items-center">
+                                                            <button
+                                                                class="btn btn-link link"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#modalMap"
+                                                                type="button">
+                                                                Istanbul
+                                                            </button>
+                                                            <svg class="icon" aria-hidden="true">
+                                                                <use xlink:href="img/sprite.svg#location"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0 mt-16">
+                                                    <div class="col-sm-5 text-secondary">Eras Active:</div>
+                                                    <div class="col">64/128</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Blocks Produced:</div>
+                                                    <div class="col">173</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Rewards Distributed:</div>
+                                                    <div class="col">22.3452 KSM</div>
+                                                </div>
+                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                    <div class="col-sm-5 text-secondary">Rewards Earned:</div>
+                                                    <div class="col">11.5142 KSM</div>
+                                                </div>
+                                            </div>
+                                            <button
+                                                class="btn btn-primary btn-lg"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalValidator"
+                                                type="button">
+                                                Stake
+                                            </button>
+                                        </div>
+                                        <div class="validator-item__shape">
+                                            <img src="img/validators/2.svg" alt="Validator shape" aria-hidden="true" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination justify-content-center mt-30 mt-md-60"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container text-center mt-120 mt-xxl-180">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-xxl-8">
+                        <h2 class="h5">Securely stake with us and support decentralization!</h2>
+                        <div class="text text-md mt-20">
+                            <p>
+                                We run our high-quality validators in Turkcell Tier III data center in Istanbul and
+                                monitor their health 7/24. We are the first and currently the only Polkadot and Kusama
+                                validator operator located in Istanbul. We run a backup validator in the OVH Cloud data
+                                center in Frankfurt, Germany for each of our validators.
+                            </p>
+                            <p>
+                                You can safely stake with our validators, support geographical decentralization and
+                                contribute to the security of Polkadot and Kusama relay chain networks.
+                            </p>
+                        </div>
+                        <a class="btn btn-primary btn-lg mt-40 mt-md-60" href="#validators">Stake with us!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        @@include("../views/parts/footer.html")
+
+        <!-- modal map -->
+        <div class="modal fade" id="modalMap" aria-labelledby="modalMapLabel" aria-hidden="true" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <button class="btn btn-link btn-close" data-bs-dismiss="modal" type="button">close</button>
+                    <div class="modal-body">
+                        <div class="loader">
+                            <div class="spinner-border text-info" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        <div class="ratio ratio-4x3">
+                            <iframe
+                                class="modal__map"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15164.645668294444!2d28.947310318653734!3d41.046120808180234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7040068086b%3A0xe1ccfe98bc01b0d0!2z0KHRgtCw0LzQsdGD0LssINCi0YPRgNGG0LjRjw!5e0!3m2!1sru!2sua!4v1648139254970!5m2!1sru!2sua"
+                                width="600"
+                                height="450"
+                                style="border: 0"
+                                allowfullscreen=""
+                                loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal validator -->
+        <div
+            class="modal fade"
+            id="modalValidator"
+            aria-labelledby="modalValidatorLabel"
+            aria-hidden="true"
+            tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <button class="btn btn-link btn-close" data-bs-dismiss="modal" type="button">close</button>
+                    <div class="modal-body p-20 p-md-40">
+                        <div class="nav hstack gap-14 align-items-center">
+                            <button
+                                class="btn btn-outline py-8 px-16 active"
+                                data-bs-toggle="tab"
+                                data-bs-target="#kusamaModal"
+                                type="button"
+                                role="tab"
+                                aria-controls="kusamaModal"
+                                aria-selected="true">
+                                <img
+                                    class="btn-invert"
+                                    src="img/kusama-logo-sign.svg"
+                                    alt="Kusama logotype"
+                                    width="24"
+                                    height="24" />
+                                <span>Kusama</span>
+                            </button>
+                            <button
+                                class="btn btn-outline py-8 px-16"
+                                data-bs-toggle="tab"
+                                data-bs-target="#polkadotModal"
+                                type="button"
+                                role="tab"
+                                aria-controls="polkadotModal"
+                                aria-selected="false">
+                                <img src="img/polkadot-logo-sign.svg" alt="Polkadot logotype" width="24" height="24" />
+                                <span>Polkadot</span>
+                            </button>
+                            <div class="hstack gap-10 align-items-center text-success ms-lg-auto">
+                                <img src="img/svg/check-fill.svg" alt="Checked icon" />
+                                Transaction is Successful
+                            </div>
+                            <!--<div class="hstack gap-10 align-items-center text-danger ms-lg-auto">-->
+                            <!--    <img src="img/svg/error-fill.svg" alt="Error icon">-->
+                            <!--    Transaction Failed-->
+                            <!--</div>-->
+                        </div>
+                        <div class="tab-content mt-40">
+                            <div
+                                class="tab-pane fade show active"
+                                id="kusamaModal"
+                                role="tabpanel"
+                                aria-labelledby="kusamaModal-tab">
+                                <div class="row gx-20">
+                                    <div class="col">
+                                        <select class="form-select">
+                                            <option selected>1234567890</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4 mt-20 mt-lg-0">
+                                        <button class="btn btn-primary w-100" type="button">Connect Wallet</button>
+                                    </div>
+                                </div>
+                                <div class="vstack gap-14 p-20 bg-light rounded mt-40">
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">🏔️ HELIKON 🏔️ / MELIDA</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                        </div>
+                                        <img src="img/svg/check-fill.svg" alt="Check icon" />
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Remove
+                                        </button>
+                                    </div>
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">🏔️ HELIKON 🏔️ / MMELIDA</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                        </div>
+                                        <img src="img/svg/check-fill.svg" alt="Check icon" />
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Remove
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="vstack gap-14 p-20 border rounded mt-24">
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">Pineapplexpress</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                        </div>
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Nominate
+                                        </button>
+                                    </div>
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">Name Validator</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                        </div>
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Nominate
+                                        </button>
+                                    </div>
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">PFkQ5QUklrY8tvcW</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                        </div>
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Nominate
+                                        </button>
+                                    </div>
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">Name Validator</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                        </div>
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Nominate
+                                        </button>
+                                    </div>
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">PFkQ5QUklrY8tvcW</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                        </div>
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Nominate
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="tab-pane fade"
+                                id="polkadotModal"
+                                role="tabpanel"
+                                aria-labelledby="polkadotModal-tab">
+                                <div class="row gx-20">
+                                    <div class="col">
+                                        <select class="form-select">
+                                            <option selected>1234567890</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4 mt-20 mt-lg-0">
+                                        <button class="btn btn-primary w-100" type="button" disabled>
+                                            Submitting
+                                            <span
+                                                class="spinner-border spinner-border-sm"
+                                                role="status"
+                                                aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="vstack gap-14 p-20 bg-light rounded mt-40">
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">🏔️ HELIKON 🏔️ / MELIDA</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                        </div>
+                                        <img src="img/svg/check-fill.svg" alt="Check icon" />
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Remove
+                                        </button>
+                                    </div>
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">🏔️ HELIKON 🏔️ / MMELIDA</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                        </div>
+                                        <img src="img/svg/check-fill.svg" alt="Check icon" />
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Remove
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="vstack gap-14 p-20 border rounded mt-24">
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">Pineapplexpress</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                        </div>
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Nominate
+                                        </button>
+                                    </div>
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">Name Validator</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                        </div>
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Nominate
+                                        </button>
+                                    </div>
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">PFkQ5QUklrY8tvcW</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                        </div>
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Nominate
+                                        </button>
+                                    </div>
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">Name Validator</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                        </div>
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Nominate
+                                        </button>
+                                    </div>
+                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
+                                        <span class="flex-grow-1 text-truncate">PFkQ5QUklrY8tvcW</span>
+                                        <div class="hstack gap-4">
+                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                        </div>
+                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                            Nominate
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--<div class="loader">-->
+                        <!--    <div class="spinner-border text-info" role="status">-->
+                        <!--        <span class="visually-hidden">Loading...</span>-->
+                        <!--    </div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/main.js"></script>
+        <script src="js/vendor.js"></script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+// Normalize (reset styles)
+
+@import 'node_modules/normalize.css/normalize';
+
+// Bootstrap
+
+@import 'node_modules/bootstrap/scss/bootstrap-grid';
+@import 'node_modules/bootstrap/scss/bootstrap-utilities';
+@import 'node_modules/bootstrap/scss/dropdown';
+@import 'node_modules/bootstrap/scss/transitions';
+@import 'node_modules/bootstrap/scss/nav';
+@import 'node_modules/bootstrap/scss/modal';
+@import 'node_modules/bootstrap/scss/spinners';
+@import 'node_modules/bootstrap/scss/forms/form-select';
+
+// Swiper
+
+@import 'node_modules/swiper/swiper';
+@import 'node_modules/swiper/modules/pagination/pagination';
