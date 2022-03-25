@@ -466,6 +466,7 @@
 	width: 600px;
 	height: 100%;
 	color: #fff;
+	transition: all 0.3s ease;
 
 	&__panel {
 		.btn {
@@ -677,6 +678,10 @@
 			}
 		}
 	}
+
+	&:not(.product-item--no-hover):hover {
+		transform: scale(1.02) translateY(-10px);
+	}
 }
 
 .validators {
@@ -719,6 +724,7 @@
 
 .validator-item {
 	position: relative;
+	transition: all 0.3s ease;
 
 	&__content {
 		@include media-breakpoint-down(md) {
@@ -767,6 +773,10 @@
 		filter: blur(20px);
 		content: '';
 		pointer-events: none;
+	}
+
+	&:hover {
+		transform: scale(1.02) translateY(-10px);
 	}
 }
 

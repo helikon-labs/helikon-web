@@ -2,6 +2,8 @@ import { createPopper } from "@popperjs/core";
 import { Collapse, Dropdown, Modal } from "bootstrap";
 import Swiper, { FreeMode, Pagination } from "swiper";
 import * as LottiePlayer from "@lottiefiles/lottie-player";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 
 // Swiper products
 (function() {
@@ -60,5 +62,42 @@ import * as LottiePlayer from "@lottiefiles/lottie-player";
         }
       }
     });
-  })
+  });
+})();
+
+// Parallax
+gsap.registerPlugin(ScrollTrigger);
+
+(function () {
+  const aboutEl = document.querySelector('#about');
+
+  if (!aboutEl)
+    return
+
+  gsap.to("#about-item-1 .about-item__content", {
+    yPercent: -15,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#about",
+      scrub: 1.5
+    },
+  });
+
+  gsap.to("#about-item-2 .about-item__content", {
+    yPercent: -20,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#about",
+      scrub: 1.5
+    },
+  });
+
+  gsap.to(".product-item__shape", {
+    yPercent: -15,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#products",
+      scrub: 1.2
+    },
+  });
 })();
