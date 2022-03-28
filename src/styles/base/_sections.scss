@@ -739,15 +739,15 @@
 
 	&__shape {
 		@include media-breakpoint-down(md) {
-			width: 155px;
-			height: 155px;
+			width: 120px;
+			height: 120px;
 		}
 
 		position: absolute;
 		top: -80px;
 		right: 30px;
-		width: 205px;
-		height: 205px;
+		width: 180px;
+		height: 180px;
 
 		img {
 			width: 100%;
