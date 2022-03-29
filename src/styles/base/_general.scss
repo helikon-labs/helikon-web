@@ -51,12 +51,23 @@ html {
 }
 
 body {
+	position: relative;
 	color: $color-black;
 	font-family: $font-primary;
 	letter-spacing: -0.022em;
 	background-color: $color-grey-light;
-	background-image: url('img/noise.png');
-	background-blend-mode: overlay;
+
+	&::before {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-image: url('img/noise.png');
+		opacity: 0.02;
+		content: '';
+		pointer-events: none;
+	}
 }
 
 h1,

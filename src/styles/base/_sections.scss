@@ -38,6 +38,9 @@
 		left: calc(50% - 500px);
 		width: 1000px;
 		height: 100%;
+		filter: blur(35px);
+		mix-blend-mode: multiply;
+		user-select: none;
 
 		~ * {
 			position: relative;
@@ -67,6 +70,7 @@
 		img {
 			@include media-breakpoint-down(md) {
 				width: 20px;
+				height: auto;
 			}
 		}
 
@@ -659,6 +663,10 @@
 		content: '';
 	}
 
+	&:not(.product-item--no-hover):hover {
+		transform: scale(1.02) translateY(-10px);
+	}
+
 	&--style {
 		&-subvt {
 			&::after {
@@ -678,10 +686,6 @@
 			}
 		}
 	}
-
-	&:not(.product-item--no-hover):hover {
-		transform: scale(1.02) translateY(-10px);
-	}
 }
 
 .validators {
@@ -691,6 +695,9 @@
 		left: calc(50% - 500px);
 		width: 1000px;
 		height: 1030px;
+		filter: blur(35px);
+		mix-blend-mode: multiply;
+		user-select: none;
 
 		~ * {
 			position: relative;
