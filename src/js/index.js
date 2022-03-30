@@ -1,6 +1,6 @@
 import { createPopper } from "@popperjs/core";
 import { Collapse, Dropdown, Modal } from "bootstrap";
-import Swiper, { FreeMode, Pagination } from "swiper";
+import Swiper, { Mousewheel, Pagination } from "swiper";
 import * as LottiePlayer from "@lottiefiles/lottie-player";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
@@ -13,12 +13,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger.js";
     return;
 
   const productsCarousel = new Swiper("#productsCarousel", {
-    modules: [Pagination, FreeMode],
+    modules: [Mousewheel, Pagination],
     spaceBetween: 10,
     slidesPerView: 1,
     pagination: {
       el: "#productsCarousel .swiper-pagination",
       clickable: true
+    },
+    mousewheel: {
+      forceToAxis: true,
+      releaseOnEdges: true
     },
     breakpoints: {
       576: {
@@ -41,12 +45,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 
   validatorsCarouselEl.forEach((el) => {
     new Swiper(el, {
-      modules: [Pagination, FreeMode],
+      modules: [Mousewheel, Pagination],
       spaceBetween: 10,
       slidesPerView: 1,
       pagination: {
         el: el.querySelector(".swiper-pagination"),
         clickable: true
+      },
+      mousewheel: {
+        forceToAxis: true,
+        releaseOnEdges: true
       },
       breakpoints: {
         576: {
