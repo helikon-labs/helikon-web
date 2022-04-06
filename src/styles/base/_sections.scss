@@ -705,6 +705,18 @@
 		}
 	}
 
+	&__nav {
+		@media screen and (max-height: 800px) {
+			margin-top: 40px !important;
+		}
+	}
+
+	&__content {
+		@media screen and (max-height: 800px) {
+			margin-top: 80px !important;
+		}
+	}
+
 	&__carousel {
 		overflow: initial;
 

@@ -3,7 +3,10 @@
     @@include("../views/parts/head.html", { "title": "Helikon" })
     <body>
         <section class="hero">
-            <img class="hero__bg" src="img/hero-bg.gif" alt="Hero background" aria-hidden="true" />
+            <video class="hero__bg" autoplay loop muted playsinline>
+                <source src="files/hero-bg.webm" type="video/webm" />
+                <source src="files/hero-bg.mp4" type="video/mp4" />
+            </video>
             <div class="container d-flex flex-column align-items-center">
                 <a class="hero__logo flex-shrink-0" href="/" aria-label="Helikon home page">
                     <img src="img/helikon-logo-sign.svg" alt="Helikon logotype" width="124" height="124" />
@@ -244,10 +247,13 @@
         </section>
 
         <section class="section validators_section" id="validators">
-            <img class="validators__bg" src="img/validators-bg.gif" alt="Validators background" aria-hidden="true" />
+            <video class="validators__bg" autoplay loop muted playsinline>
+                <source src="files/validators-bg.webm" type="video/webm" />
+                <source src="files/validators-bg.mp4" type="video/mp4" />
+            </video>
             <div class="container">
                 <h2 class="text-center">Validators</h2>
-                <div class="nav hstack gap-20 gap-md-24 justify-content-center mt-40 mt-md-60">
+                <div class="validators__nav nav hstack gap-20 gap-md-24 justify-content-center mt-40 mt-md-60">
                     <button
                         class="btn btn-white btn-lg py-8 px-16 active"
                         data-bs-toggle="tab"
@@ -276,7 +282,7 @@
                         <span>Polkadot</span>
                     </button>
                 </div>
-                <div class="tab-content mt-80 mt-md-120">
+                <div class="validators__content tab-content mt-80 mt-md-120">
                     <div class="tab-pane fade show active" id="kusama" role="tabpanel" aria-labelledby="kusama-tab">
                         <div class="swiper validators__carousel">
                             <div class="swiper-wrapper justify-content-xl-center gap-xl-40">
@@ -619,7 +625,7 @@
             aria-labelledby="modalValidatorLabel"
             aria-hidden="true"
             tabindex="-1">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <button class="btn btn-link btn-close" data-bs-dismiss="modal" type="button">close</button>
                     <div class="modal-body p-20 p-md-40">
