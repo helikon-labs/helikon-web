@@ -32,6 +32,9 @@ $container-max-widths: (
 	xl: 1100px,
 	xxl: 1360px
 );
+$enable-grid-classes: true;
+$enable-cssgrid: true;
+
 $grid-gutter-width: 2.5rem;
 
 $secondary: $color-grey;

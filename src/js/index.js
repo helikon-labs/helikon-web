@@ -67,7 +67,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin.js";
         },
         1200: {
           slidesPerView: "auto",
-          spaceBetween: 0
+          spaceBetween: 40
         }
       }
     });

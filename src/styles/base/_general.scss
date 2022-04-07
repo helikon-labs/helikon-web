@@ -208,7 +208,6 @@ blockquote {
 	@extend %btn-reset;
 
 	display: inline-flex;
-	gap: 8px;
 	align-items: center;
 	justify-content: center;
 	letter-spacing: -0.022em;
@@ -405,6 +404,10 @@ blockquote {
 		font-size: rem(24);
 	}
 
+	> *:not(:first-child) {
+		margin-left: 8px;
+	}
+
 	&.active {
 		color: #fff;
 		background-color: $color-black;
@@ -513,7 +516,7 @@ blockquote {
 
 	--swiper-pagination-bullet-width: 38px;
 	--swiper-pagination-bullet-height: 10px;
-	--swiper-pagination-bullet-horizontal-gap: 0;
+	--swiper-pagination-bullet-horizontal-gap: 5px;
 	--swiper-pagination-bullet-inactive-color: #d3d7db;
 	--swiper-pagination-bullet-inactive-opacity: 1;
 
@@ -523,9 +526,7 @@ blockquote {
 	}
 
 	position: initial;
-	display: flex;
-	gap: 10px;
-	justify-content: flex-start;
+	text-align: left;
 
 	.swiper-pagination-bullet {
 		position: relative;
@@ -573,5 +574,69 @@ blockquote {
 
 	100% {
 		transform: scale(0.75);
+	}
+}
+
+// Flex gap polyfill
+
+.hstack,
+.vstack {
+	--gap: 0;
+	--column-gap: var(--gap);
+	--row-gap: var(--gap);
+
+	margin: calc(var(--row-gap) / -2) calc(var(--column-gap) / -2);
+
+	& > * {
+		margin: calc(var(--row-gap) / 2) calc(var(--column-gap) / 2);
+
+		&.hstack,
+		&.vstack {
+			margin: calc(var(--row-gap) / -2) calc(var(--column-gap) / -2);
+		}
+	}
+
+	&.g-4 {
+		--gap: 4px;
+	}
+
+	&.g-12 {
+		--gap: 12px;
+	}
+
+	&.g-14 {
+		--gap: 14px;
+	}
+
+	&.g-20 {
+		--gap: 20px;
+	}
+
+	&.g-24 {
+		--gap: 24px;
+	}
+
+	&.g-md-20 {
+		@include media-breakpoint-up(md) {
+			--gap: 20px;
+		}
+	}
+
+	&.g-md-24 {
+		@include media-breakpoint-up(md) {
+			--gap: 24px;
+		}
+	}
+
+	&.g-sm-40 {
+		@include media-breakpoint-up(sm) {
+			--gap: 40px;
+		}
+	}
+
+	&.g-lg-20 {
+		@include media-breakpoint-up(lg) {
+			--gap: 20px;
+		}
 	}
 }

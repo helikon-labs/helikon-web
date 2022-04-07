@@ -549,6 +549,7 @@
 			padding-right: 0;
 		}
 
+		flex-grow: 1;
 		margin-bottom: auto;
 		padding-right: 180px;
 
@@ -726,6 +727,12 @@
 			}
 
 			width: 530px;
+
+			&:last-child {
+				@include media-breakpoint-up(xl) {
+					margin-right: 0 !important;
+				}
+			}
 		}
 	}
 

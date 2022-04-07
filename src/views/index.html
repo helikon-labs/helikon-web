@@ -3,7 +3,7 @@
     @@include("../views/parts/head.html", { "title": "Helikon" })
     <body>
         <section class="hero">
-            <video class="hero__bg" autoplay loop muted playsinline>
+            <video class="hero__bg" poster="img/hero-bg.jpg" autoplay loop muted playsinline>
                 <source src="files/hero-bg.webm" type="video/webm" />
                 <source src="files/hero-bg.mp4" type="video/mp4" />
             </video>
@@ -12,12 +12,12 @@
                     <img src="img/helikon-logo-sign.svg" alt="Helikon logotype" width="124" height="124" />
                 </a>
                 <div class="hero__text flex-grow-1 py-20 py-sm-60">
-                    <h1>
+                    <h1 class="mb-40">
                         We are
                         <span><img src="img/helikon-logo-name.svg" alt="Helikon name" width="231" height="37" /></span>
                         , a crypto-native blockchain company from Istanbul.
                     </h1>
-                    <div class="hstack flex-wrap align-items-center justify-content-center gap-20 mt-40">
+                    <div class="hstack flex-wrap align-items-center justify-content-center g-20">
                         <a class="btn btn-primary btn-lg" href="#products">See our products</a>
                         <a class="btn btn-outline btn-lg" href="#validators">Stake with us!</a>
                     </div>
@@ -33,7 +33,7 @@
                 <div class="about__grid">
                     <div class="about-item about-item--style-squares" id="about-item-1">
                         <div class="about-item__content">
-                            <div class="text text-md">
+                            <div class="text text-md mb-20">
                                 <p>
                                     We build
                                     <strong>beautiful, robust, open-source software</strong>
@@ -41,7 +41,7 @@
                                 </p>
                                 <p>We are proudly supported by the Web3 Foundation and the Kusama Treasury.</p>
                             </div>
-                            <div class="hstack flex-wrap gap-24 gap-sm-40 mt-20">
+                            <div class="hstack flex-wrap g-24 g-sm-40">
                                 <img
                                     src="img/kusama-logo-supported.svg"
                                     alt="Kusama logotype"
@@ -54,11 +54,11 @@
                     </div>
                     <div class="about-item about-item--style-validator" id="about-item-2">
                         <div class="about-item__content">
-                            <div class="hstack flex-wrap gap-20 mb-30 mb-sm-40">
+                            <div class="hstack flex-wrap g-20">
                                 <img src="img/polkadot-logo-name.svg" alt="Polkadot logotype" width="148" height="32" />
                                 <img src="img/kusama-logo-name.svg" alt="Kusama logotype" width="114" height="27" />
                             </div>
-                            <div class="text text-md">
+                            <div class="text text-md mt-30 mt-sm-40">
                                 <p>
                                     We run
                                     <strong>secure and powerful</strong>
@@ -91,7 +91,7 @@
                                         alt="SubVT logotype"
                                         width="169"
                                         height="46" />
-                                    <div class="product-item__description text text-sm mt-30 mt-md-40">
+                                    <div class="product-item__description text text-sm mt-30 mt-md-40 mb-40">
                                         <p>
                                             SubVT (Substrate Validator Toolkit) is a native mobile application for iOS
                                             and Android phones, tablets and wearables that provides node operators with
@@ -105,7 +105,7 @@
                                             </small>
                                         </p>
                                     </div>
-                                    <div class="product-item__panel hstack flex-wrap gap-14 align-items-center mt-40">
+                                    <div class="product-item__panel hstack flex-wrap g-14 align-items-center">
                                         <a class="btn btn-white btn-sm py-10 px-16 text-sm" href="#">
                                             <svg class="icon" aria-hidden="true">
                                                 <use xlink:href="img/sprite.svg#link"></use>
@@ -141,7 +141,7 @@
                             <div class="product-item product-item--style-1kv">
                                 <div class="product-item__content">
                                     <h4>1KV Telegram Bot</h4>
-                                    <div class="product-item__description text text-sm mt-30 mt-md-40">
+                                    <div class="product-item__description text text-sm mt-30 mt-md-40 mb-40">
                                         <p>
                                             A telegram bot for the validators enrolled in the Polkadot and Kusama
                                             Thousand Validators (1KV) Programme. You may find Polkadot bot available for
@@ -159,7 +159,7 @@
                                             .
                                         </p>
                                     </div>
-                                    <div class="product-item__panel hstack flex-wrap gap-14 align-items-center mt-40">
+                                    <div class="product-item__panel hstack flex-wrap g-14 align-items-center">
                                         <a class="btn btn-white btn-sm py-8 px-16 text-sm" href="#">
                                             <img src="img/kusama-logo-sign.svg" alt="Kusama logotype" />
                                             <span>Kusama bot</span>
@@ -197,7 +197,7 @@
                             <div class="product-item product-item--style-chainviz">
                                 <div class="product-item__content">
                                     <h4>ChainViz</h4>
-                                    <div class="product-item__description text text-sm mt-30 mt-md-40">
+                                    <div class="product-item__description text text-sm mt-30 mt-md-40 mb-40">
                                         <p>
                                             ChainViz is a real-time 3D chain visualization web application for Kusama.
                                         </p>
@@ -207,7 +207,7 @@
                                             validators statistics of the Kusama network.
                                         </p>
                                     </div>
-                                    <div class="product-item__panel hstack flex-wrap gap-14 align-items-center mt-40">
+                                    <div class="product-item__panel hstack flex-wrap g-14 align-items-center">
                                         <a class="btn btn-white btn-sm py-10 px-16 text-sm" href="#">
                                             <svg class="icon" aria-hidden="true">
                                                 <use xlink:href="img/sprite.svg#link"></use>
@@ -247,13 +247,13 @@
         </section>
 
         <section class="section validators_section" id="validators">
-            <video class="validators__bg" autoplay loop muted playsinline>
+            <video class="validators__bg" poster="img/validators-bg.jpg" autoplay loop muted playsinline>
                 <source src="files/validators-bg.webm" type="video/webm" />
                 <source src="files/validators-bg.mp4" type="video/mp4" />
             </video>
             <div class="container">
-                <h2 class="text-center">Validators</h2>
-                <div class="validators__nav nav hstack gap-20 gap-md-24 justify-content-center mt-40 mt-md-60">
+                <h2 class="text-center mb-40 mb-md-60">Validators</h2>
+                <div class="validators__nav nav hstack g-20 g-md-24 justify-content-center">
                     <button
                         class="btn btn-white btn-lg py-8 px-16 active"
                         data-bs-toggle="tab"
@@ -285,28 +285,28 @@
                 <div class="validators__content tab-content mt-80 mt-md-120">
                     <div class="tab-pane fade show active" id="kusama" role="tabpanel" aria-labelledby="kusama-tab">
                         <div class="swiper validators__carousel">
-                            <div class="swiper-wrapper justify-content-xl-center gap-xl-40">
+                            <div class="swiper-wrapper justify-content-xl-center">
                                 <div class="swiper-slide">
                                     <div class="validator-item">
                                         <div class="validator-item__content">
                                             <h4>ISTANBUL</h4>
-                                            <div class="vstack gap-12 text-sm my-30 my-md-40">
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                            <div class="grid gap-14 text-sm my-30 my-md-40">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Identity:</div>
                                                     <div class="col">🏔️ HELIKON 🏔️ / ISTANBUL</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Address:</div>
                                                     <div class="col">Cb3ZF5...M3XkGY (link)</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Active Since:</div>
                                                     <div class="col">7th of January, 2021</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Location:</div>
                                                     <div class="col">
-                                                        <div class="d-inline-flex gap-4 align-items-center">
+                                                        <div class="d-inline-flex g-4 align-items-center">
                                                             <button
                                                                 class="btn btn-link link"
                                                                 data-bs-toggle="modal"
@@ -320,19 +320,19 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0 mt-16">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0 mt-16">
                                                     <div class="col-sm-5 text-secondary">Eras Active:</div>
                                                     <div class="col">64/128</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Blocks Produced:</div>
                                                     <div class="col">173</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Rewards Distributed:</div>
                                                     <div class="col">22.3452 KSM</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Rewards Earned:</div>
                                                     <div class="col">11.5142 KSM</div>
                                                 </div>
@@ -357,23 +357,23 @@
                                     <div class="validator-item">
                                         <div class="validator-item__content">
                                             <h4>MELIDA</h4>
-                                            <div class="vstack gap-12 text-sm my-30 my-md-40">
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                            <div class="grid gap-14 text-sm my-30 my-md-40">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Identity:</div>
                                                     <div class="col">🏔️ HELIKON 🏔️ / MELIDA</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Address:</div>
                                                     <div class="col">Cb3ZF5...M3XkGY (link)</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Active Since:</div>
                                                     <div class="col">7th of January, 2021</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Location:</div>
                                                     <div class="col">
-                                                        <div class="d-inline-flex gap-4 align-items-center">
+                                                        <div class="d-inline-flex g-4 align-items-center">
                                                             <button
                                                                 class="btn btn-link link"
                                                                 data-bs-toggle="modal"
@@ -387,19 +387,19 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0 mt-16">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0 mt-16">
                                                     <div class="col-sm-5 text-secondary">Eras Active:</div>
                                                     <div class="col">64/128</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Blocks Produced:</div>
                                                     <div class="col">173</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Rewards Distributed:</div>
                                                     <div class="col">22.3452 KSM</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Rewards Earned:</div>
                                                     <div class="col">11.5142 KSM</div>
                                                 </div>
@@ -426,28 +426,28 @@
                     </div>
                     <div class="tab-pane fade" id="polkadot" role="tabpanel" aria-labelledby="polkadot-tab">
                         <div class="swiper validators__carousel">
-                            <div class="swiper-wrapper justify-content-xl-center gap-xl-40">
+                            <div class="swiper-wrapper justify-content-xl-center">
                                 <div class="swiper-slide">
                                     <div class="validator-item">
                                         <div class="validator-item__content">
                                             <h4>ISTANBUL 1</h4>
-                                            <div class="vstack gap-12 text-sm my-30 my-md-40">
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                            <div class="grid gap-14 text-sm my-30 my-md-40">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Identity:</div>
                                                     <div class="col">🏔️ HELIKON 🏔️ / ISTANBUL</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Address:</div>
                                                     <div class="col">Cb3ZF5...M3XkGY (link)</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Active Since:</div>
                                                     <div class="col">7th of January, 2021</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Location:</div>
                                                     <div class="col">
-                                                        <div class="d-inline-flex gap-4 align-items-center">
+                                                        <div class="d-inline-flex g-4 align-items-center">
                                                             <button
                                                                 class="btn btn-link link"
                                                                 data-bs-toggle="modal"
@@ -461,19 +461,19 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0 mt-16">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0 mt-16">
                                                     <div class="col-sm-5 text-secondary">Eras Active:</div>
                                                     <div class="col">64/128</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Blocks Produced:</div>
                                                     <div class="col">173</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Rewards Distributed:</div>
                                                     <div class="col">22.3452 KSM</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Rewards Earned:</div>
                                                     <div class="col">11.5142 KSM</div>
                                                 </div>
@@ -498,23 +498,23 @@
                                     <div class="validator-item">
                                         <div class="validator-item__content">
                                             <h4>MELIDA 1</h4>
-                                            <div class="vstack gap-12 text-sm my-30 my-md-40">
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                            <div class="grid gap-14 text-sm my-30 my-md-40">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Identity:</div>
                                                     <div class="col">🏔️ HELIKON 🏔️ / MELIDA</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Address:</div>
                                                     <div class="col">Cb3ZF5...M3XkGY (link)</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Active Since:</div>
                                                     <div class="col">7th of January, 2021</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Location:</div>
                                                     <div class="col">
-                                                        <div class="d-inline-flex gap-4 align-items-center">
+                                                        <div class="d-inline-flex g-4 align-items-center">
                                                             <button
                                                                 class="btn btn-link link"
                                                                 data-bs-toggle="modal"
@@ -528,19 +528,19 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0 mt-16">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0 mt-16">
                                                     <div class="col-sm-5 text-secondary">Eras Active:</div>
                                                     <div class="col">64/128</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Blocks Produced:</div>
                                                     <div class="col">173</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Rewards Distributed:</div>
                                                     <div class="col">22.3452 KSM</div>
                                                 </div>
-                                                <div class="row gx-8 gy-4 gy-sm-0">
+                                                <div class="g-col-12 row gx-8 gy-4 gy-sm-0">
                                                     <div class="col-sm-5 text-secondary">Rewards Earned:</div>
                                                     <div class="col">11.5142 KSM</div>
                                                 </div>
@@ -629,7 +629,7 @@
                 <div class="modal-content">
                     <button class="btn btn-link btn-close" data-bs-dismiss="modal" type="button">close</button>
                     <div class="modal-body p-20 p-md-40">
-                        <div class="nav hstack gap-14 align-items-center">
+                        <div class="nav hstack g-14 align-items-center">
                             <button
                                 class="btn btn-outline py-8 px-16 active"
                                 data-bs-toggle="tab"
@@ -657,11 +657,11 @@
                                 <img src="img/polkadot-logo-sign.svg" alt="Polkadot logotype" width="24" height="24" />
                                 <span>Polkadot</span>
                             </button>
-                            <div class="hstack gap-10 align-items-center text-success ms-lg-auto">
+                            <div class="hstack g-10 align-items-center text-success ms-lg-auto">
                                 <img src="img/svg/check-fill.svg" alt="Checked icon" />
                                 Transaction is Successful
                             </div>
-                            <!--<div class="hstack gap-10 align-items-center text-danger ms-lg-auto">-->
+                            <!--<div class="hstack g-10 align-items-center text-danger ms-lg-auto">-->
                             <!--    <img src="img/svg/error-fill.svg" alt="Error icon">-->
                             <!--    Transaction Failed-->
                             <!--</div>-->
@@ -685,84 +685,112 @@
                                         <button class="btn btn-primary w-100" type="button">Connect Wallet</button>
                                     </div>
                                 </div>
-                                <div class="vstack gap-14 p-20 bg-light rounded mt-40">
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">🏔️ HELIKON 🏔️ / MELIDA</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
-                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
-                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
-                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                <div class="grid p-20 bg-light rounded mt-40 gap-14">
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">🏔️ HELIKON 🏔️ / MELIDA</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                                <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                                <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                                <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                            </div>
                                         </div>
-                                        <img src="img/svg/check-fill.svg" alt="Check icon" />
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Remove
-                                        </button>
+                                        <img class="col-auto" src="img/svg/check-fill.svg" alt="Check icon" />
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Remove
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">🏔️ HELIKON 🏔️ / MMELIDA</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
-                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
-                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
-                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">🏔️ HELIKON 🏔️ / MELIDA</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                                <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                                <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                                <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                            </div>
                                         </div>
-                                        <img src="img/svg/check-fill.svg" alt="Check icon" />
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Remove
-                                        </button>
+                                        <img class="col-auto" src="img/svg/check-fill.svg" alt="Check icon" />
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Remove
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="vstack gap-14 p-20 border rounded mt-24">
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">Pineapplexpress</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
-                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
-                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
-                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                <div class="grid p-20 border rounded mt-24 gap-14">
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">Pineapplexpress</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                                <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                                <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                                <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                            </div>
                                         </div>
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Nominate
-                                        </button>
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Nominate
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">Name Validator</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">Name Validator</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                            </div>
                                         </div>
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Nominate
-                                        </button>
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Nominate
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">PFkQ5QUklrY8tvcW</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
-                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">PFkQ5QUklrY8tvcW</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                                <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                            </div>
                                         </div>
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Nominate
-                                        </button>
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Nominate
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">Name Validator</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">Name Validator</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                            </div>
                                         </div>
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Nominate
-                                        </button>
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Nominate
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">PFkQ5QUklrY8tvcW</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
-                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">PFkQ5QUklrY8tvcW</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                                <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                            </div>
                                         </div>
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Nominate
-                                        </button>
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Nominate
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -782,7 +810,7 @@
                                     </div>
                                     <div class="col-lg-4 mt-20 mt-lg-0">
                                         <button class="btn btn-primary w-100" type="button" disabled>
-                                            Submitting
+                                            <span>Submitting</span>
                                             <span
                                                 class="spinner-border spinner-border-sm"
                                                 role="status"
@@ -790,84 +818,112 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="vstack gap-14 p-20 bg-light rounded mt-40">
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">🏔️ HELIKON 🏔️ / MELIDA</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
-                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
-                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
-                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                <div class="grid p-20 bg-light rounded mt-40 gap-14">
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">🏔️ HELIKON 🏔️ / MELIDA</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                                <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                                <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                                <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                            </div>
                                         </div>
-                                        <img src="img/svg/check-fill.svg" alt="Check icon" />
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Remove
-                                        </button>
+                                        <img class="col-auto" src="img/svg/check-fill.svg" alt="Check icon" />
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Remove
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">🏔️ HELIKON 🏔️ / MMELIDA</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
-                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
-                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
-                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">🏔️ HELIKON 🏔️ / MELIDA</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                                <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                                <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                                <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                            </div>
                                         </div>
-                                        <img src="img/svg/check-fill.svg" alt="Check icon" />
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Remove
-                                        </button>
+                                        <img class="col-auto" src="img/svg/check-fill.svg" alt="Check icon" />
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Remove
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="vstack gap-14 p-20 border rounded mt-24">
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">Pineapplexpress</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
-                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
-                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
-                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                <div class="grid p-20 border rounded mt-24 gap-14">
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">Pineapplexpress</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                                <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                                <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                                <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                            </div>
                                         </div>
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Nominate
-                                        </button>
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Nominate
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">Name Validator</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">Name Validator</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                            </div>
                                         </div>
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Nominate
-                                        </button>
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Nominate
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">PFkQ5QUklrY8tvcW</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/link-fill.svg" alt="Link icon" />
-                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">PFkQ5QUklrY8tvcW</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/link-fill.svg" alt="Link icon" />
+                                                <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                            </div>
                                         </div>
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Nominate
-                                        </button>
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Nominate
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">Name Validator</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">Name Validator</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/blocks-fill.svg" alt="Blocks icon" />
+                                            </div>
                                         </div>
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Nominate
-                                        </button>
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Nominate
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="hstack gap-14 gap-lg-20 align-items-center w-100 text-sm">
-                                        <span class="flex-grow-1 text-truncate">PFkQ5QUklrY8tvcW</span>
-                                        <div class="hstack gap-4">
-                                            <img src="img/svg/death-fill.svg" alt="Death icon" />
-                                            <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                    <div class="g-col-12 row gx-14 gx-lg-20 align-items-center text-sm">
+                                        <span class="col text-truncate">PFkQ5QUklrY8tvcW</span>
+                                        <div class="col-auto">
+                                            <div class="hstack g-4">
+                                                <img src="img/svg/death-fill.svg" alt="Death icon" />
+                                                <img src="img/svg/nouser-fill.svg" alt="No user icon" />
+                                            </div>
                                         </div>
-                                        <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
-                                            Nominate
-                                        </button>
+                                        <div class="col-auto">
+                                            <button class="btn btn-outline px-12 py-4 flex-shrink-0" type="button">
+                                                Nominate
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
