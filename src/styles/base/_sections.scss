@@ -6,9 +6,8 @@
 	position: relative;
 	display: flex;
 	align-items: stretch;
-	min-height: 100vh;
+	min-height: calc(var(--vh, 1fr) * 100);
 	padding: 40px 0 20px;
-	overflow: hidden;
 	text-align: center;
 
 	h1 {
@@ -33,6 +32,12 @@
 	}
 
 	&__bg {
+		@include media-breakpoint-down(lg) {
+			left: 0;
+			width: 100%;
+			object-fit: cover;
+		}
+
 		position: absolute;
 		top: 0;
 		left: calc(50% - 500px);

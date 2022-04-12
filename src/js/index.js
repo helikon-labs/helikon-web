@@ -6,6 +6,18 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin.js";
 
+// Get real vh
+
+(function () {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+  // window.addEventListener('resize', () => {
+  //   let vh = window.innerHeight * 0.01;
+  //   document.documentElement.style.setProperty('--vh', `${vh}px`);
+  // }, {passive: true});
+}());
+
 // Swiper products
 (function() {
   const productsCarouselEl = document.querySelector("#productsCarousel");
