@@ -105,6 +105,8 @@ function views() {
         }))
         .pipe(gulpif(production, replace('.css', '.min.css')))
         .pipe(gulpif(production, replace('.js', '.min.js')))
+        // fix .min.json name replace from the previous step
+        .pipe(gulpif(production, replace('.min.json', '.json')))
         .pipe(dest(paths.views.dist))
         .pipe(browsersync.stream());
 }
