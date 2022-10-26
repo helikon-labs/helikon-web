@@ -446,7 +446,6 @@
 			@include media-breakpoint-down(sm) {
 				width: auto;
 			}
-
 			width: 600px;
 			height: auto;
 		}
@@ -687,6 +686,12 @@
 		}
 
 		&-chainviz {
+			&::after {
+				background: linear-gradient(157.72deg, #676b6b 14.21%, #111212 98.08%);
+			}
+		}
+
+        &-chainsynth {
 			&::after {
 				background: linear-gradient(157.72deg, #676b6b 14.21%, #111212 98.08%);
 			}

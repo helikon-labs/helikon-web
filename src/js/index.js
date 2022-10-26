@@ -156,3 +156,18 @@ gsap.registerPlugin(ScrollToPlugin);
 
   scrollToHash(window.location.hash);
 })();
+
+(function() {
+    document.getElementById('kusama-istanbul-address-copy-button').onclick = function() {
+        navigator.clipboard.writeText('GC8fuEZG4E5epGf5KGXtcDfvrc6HXE7GJ5YnbiqSpqdQYLg');
+        return false;
+    }
+    document.getElementById('kusama-melida-address-copy-button').onclick = function() {
+        navigator.clipboard.writeText('GougF9o6LNGrAMb1ZtH9XWePVCz1PBAvwatjvCtw75M6M3q');
+        return false;
+    }
+    document.getElementById('polkadot-istanbul-address-copy-button').onclick = function() {
+        navigator.clipboard.writeText('123kFHVth2udmM79sn3RPQ81HukrQWCxA1vmTWkGHSvkR4k1');
+        return false;
+    }
+})();

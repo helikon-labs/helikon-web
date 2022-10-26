@@ -3,6 +3,6 @@ module.exports = {
     "attributeGroups": ["$CODE_GUIDE"],
     tabWidth: 4,
     printWidth: 120,
-    bracketSameLine: true,
-    htmlWhitespaceSensitivity: 'ignore'
+    bracketSameLine: false,
+    htmlWhitespaceSensitivity: 'strict',
 }

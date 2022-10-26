@@ -54,6 +54,7 @@ body {
 	font-family: $font-primary;
 	letter-spacing: -0.022em;
 	background-color: $color-grey-light;
+    overscroll-behavior-x: none;
 
 	&::before {
 		position: absolute;
@@ -151,6 +152,10 @@ a {
 	&:focus-visible {
 		box-shadow: 0 0 0 3px rgba($color-green, 0.5);
 	}
+}
+
+a.underlined {
+    text-decoration: underline;
 }
 
 .link {
