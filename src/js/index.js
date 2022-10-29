@@ -162,7 +162,7 @@ gsap.registerPlugin(ScrollToPlugin);
         navigator.clipboard.writeText('GC8fuEZG4E5epGf5KGXtcDfvrc6HXE7GJ5YnbiqSpqdQYLg');
         return false;
     }
-    document.getElementById('kusama-melida-address-copy-button').onclick = function() {
+    document.getElementById('kusama-melody-address-copy-button').onclick = function() {
         navigator.clipboard.writeText('GougF9o6LNGrAMb1ZtH9XWePVCz1PBAvwatjvCtw75M6M3q');
         return false;
     }
