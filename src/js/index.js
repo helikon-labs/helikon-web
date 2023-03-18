@@ -166,6 +166,14 @@ gsap.registerPlugin(ScrollToPlugin);
         navigator.clipboard.writeText('GougF9o6LNGrAMb1ZtH9XWePVCz1PBAvwatjvCtw75M6M3q');
         return false;
     }
+    document.getElementById('kusama-galata-address-copy-button').onclick = function() {
+        navigator.clipboard.writeText('Gfwy4tGZvCnKmwQDE1tHjGPNY2LDqezW6bPY4mYMrrjiWnE');
+        return false;
+    }
+    document.getElementById('kusama-mezzanine-address-copy-button').onclick = function() {
+        navigator.clipboard.writeText('D2S7Qa6oPYAaJeX7vciJFUCDqBHBkHBfBCGbpm7bog8bBMZ');
+        return false;
+    }
     document.getElementById('polkadot-istanbul-address-copy-button').onclick = function() {
         navigator.clipboard.writeText('123kFHVth2udmM79sn3RPQ81HukrQWCxA1vmTWkGHSvkR4k1');
         return false;
