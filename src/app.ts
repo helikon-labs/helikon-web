@@ -1,5 +1,5 @@
 import typescriptLogo from './typescript.svg';
-import viteLogo from '/vite.svg';
+import viteLogo from '/favicon.svg';
 import { setupCounter } from './counter';
 
 import { AppEvent, eventBus, type EventMap } from './event/event';
@@ -8,6 +8,7 @@ import { $counter } from './data/data-store';
 
 class App {
     private unsubs: Array<() => void> = [];
+    private timers: Array<number> = [];
 
     constructor() {}
 
@@ -55,15 +56,17 @@ class App {
             });
             this.unsubs.push(unsub);
 
-            // for testing purposes - will be deleted on the actual site
-            setTimeout(() => {
-                eventBus.emit(AppEvent.Ping);
-                eventBus.emit(AppEvent.Close, { id: 'close-id-200' });
-            }, 2500);
-
-            setTimeout(() => {
-                eventBus.emit(AppEvent.UI.Layout.Resize, { width: 1920, height: 1080 });
-            }, 5000);
+            this.timers.push(
+                setTimeout(() => {
+                    eventBus.emit(AppEvent.Ping);
+                    eventBus.emit(AppEvent.Close, { id: 'close-id-200' });
+                }, 2500),
+            );
+            this.timers.push(
+                setTimeout(() => {
+                    eventBus.emit(AppEvent.UI.Layout.Resize, { width: 1920, height: 1080 });
+                }, 5000),
+            );
         } catch (error) {
             logger.error('Failed to start app:', error);
         }
@@ -78,6 +81,10 @@ class App {
             unsub();
         }
         this.unsubs = [];
+        for (const timer of this.timers) {
+            clearTimeout(timer);
+        }
+        this.timers = [];
         $counter.set(0);
     }
 }
