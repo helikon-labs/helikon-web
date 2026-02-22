@@ -6,23 +6,13 @@ This is a review of the v2 template. The foundation is solid — good tooling ch
 
 ## Bugs / Correctness Issues
 
-### 1. `UIEvent.Layout.Expand` missing from `UIEventMap`
+### ~~1. `UIEvent.Layout.Expand` missing from `UIEventMap`~~ ✓ Fixed
 
-**File:** `src/event/ui.ts`
-
-`Expand` is defined in the `UIEvent` constant object but has no corresponding entry in `UIEventMap`. This means `mitt` cannot enforce type safety when emitting or listening for that event — it falls through as `never`.
-
-```ts
-// UIEvent constant has Expand defined:
-Expand: 'ui:layout:expand',
-
-// But UIEventMap is missing the entry:
-[UIEvent.Layout.Expand]: { panel: string }; // or whatever the payload should be
-```
+`[UIEvent.Layout.Expand]: void` is now present in `UIEventMap` in `src/event/ui.ts`.
 
 ### 2. `setTimeout` handles are never cleared in `stop()`
 
-**File:** `src/app.ts:57–65`
+**File:** `src/app.ts:57–64`
 
 Two `setTimeout` calls are fired in `start()`. In `stop()` — which is called during HMR dispose — those timers are never cancelled. If `stop()` is called before they fire, the events still emit into the already torn-down bus. The timer IDs should be stored and `clearTimeout()` called in `stop()`.
 
@@ -38,78 +28,29 @@ for (const timer of this.timers) {
 this.timers = [];
 ```
 
-### 3. `app.start()` is not awaited in `bootstrap()`
+### ~~3. `app.start()` is not awaited in `bootstrap()`~~ ✓ Fixed
 
-**File:** `src/main.ts:9`
-
-`start()` is `async`, but the call in `bootstrap()` is neither awaited nor given a `.catch()` handler. Any error thrown asynchronously inside `start()` becomes a silently dropped unhandled promise rejection.
-
-```ts
-// Currently:
-app.start();
-
-// Should be:
-app.start().catch((err) => logger.error('App failed to start:', err));
-```
+`bootstrap()` in `src/main.ts` now calls `app.start().catch((err) => logger.error('App failed to start:', err))`.
 
 ---
 
 ## Code Quality / Consistency
 
-### 4. Counter state is split between two independent systems
+### ~~4. Counter state is split between two independent systems~~ ✓ Fixed
 
-**Files:** `src/counter.ts`, `src/data/data-store.ts`, `src/app.ts`
+`setupCounter()` in `src/counter.ts` now uses the `$counter` atom directly — subscribing to it to update the button text and calling `$counter.set(...)` on click. The two systems are fully synchronised.
 
-`setupCounter()` maintains its own local `counter` variable in a closure. The `$counter` atom in the data store exists separately. They are never synchronised:
+### ~~5. Inconsistent event access pattern in the same file~~ ✓ Fixed
 
-- Clicking the button does **not** update `$counter`.
-- `$counter.set(...)` in the `setTimeout` does **not** update the button text.
+`src/app.ts` no longer imports `UIEvent` at all. All event access uses `AppEvent.UI.*` consistently.
 
-As a template, this is misleading — it implies a pattern that doesn't actually work end-to-end. Either wire `setupCounter` to use the atom directly, or remove one of the two mechanisms.
+### ~~6. Event handler `this` binding is a potential footgun~~ ✓ Fixed
 
-### 5. Inconsistent event access pattern in the same file
+All handlers in `src/app.ts` are now arrow function class properties (`onPing`, `onClose`, `onLayoutChange`), ensuring correct `this` binding and stable reference identity for `mitt`'s `on`/`off`.
 
-**File:** `src/app.ts:50, 64`
+### ~~7. `.js` extension in test import is inconsistent~~ ✓ Fixed
 
-```ts
-// Line 50 — accesses via UIEvent directly:
-eventBus.on(UIEvent.Layout.Resize, this.onLayoutChange);
-
-// Line 64 — accesses via AppEvent.UI:
-eventBus.emit(AppEvent.UI.Layout.Resize, { width: 1920, height: 1080 });
-```
-
-Both resolve to the same string at runtime, but using two different access paths in the same file is a footgun. Since `AppEvent` is the intended unified API, `UIEvent` shouldn't need to be imported in `app.ts` at all — use `AppEvent.UI.*` consistently throughout.
-
-### 6. Event handler `this` binding is a potential footgun
-
-**File:** `src/app.ts:48–50, 73–75`
-
-```ts
-eventBus.on(AppEvent.Ping, this.onPing);
-```
-
-This works today only because none of the handlers reference `this`. The moment any handler needs `this.something`, it will break silently at runtime — the method reference loses its binding when passed as a callback. Arrow function class properties fix both binding and the `on`/`off` reference identity problem `mitt` requires:
-
-```ts
-private onPing = async (): Promise<void> => {
-    logger.info('Pong.');
-};
-```
-
-### 7. `.js` extension in test import is inconsistent
-
-**File:** `src/sum.test.ts:2`
-
-```ts
-import { sum } from './sum.js';
-```
-
-Every other import in the codebase omits the extension. This is technically valid for ESNext resolution (TypeScript maps `.js` to `.ts`), but it is visually inconsistent. It should match the rest of the codebase:
-
-```ts
-import { sum } from './sum';
-```
+`src/sum.test.ts` now imports `from './sum'`, matching the rest of the codebase.
 
 ---
 
@@ -117,8 +58,8 @@ import { sum } from './sum';
 
 ### 8. Placeholder content in `index.html`
 
-- The page `<title>` is `"Vite + TS"` — should be updated to the real project name.
-- The favicon references `/vite.svg` — the Vite logo placeholder.
+- ~~The page `<title>` is `"Vite + TS"`~~ ✓ Fixed — title is now `"Helikon Home"`.
+- The favicon still references `/vite.svg` — the Vite logo placeholder. Should be replaced with the real project favicon.
 
 ### 9. Orphaned `patch-package` devDependency
 
@@ -142,15 +83,15 @@ import { sum } from './sum';
 
 ## Summary
 
-| # | Issue | Severity | File |
-|---|---|---|---|
-| 1 | `UIEvent.Layout.Expand` not in `UIEventMap` | Bug | `src/event/ui.ts` |
-| 2 | `setTimeout` handles not cleared in `stop()` | Bug | `src/app.ts` |
-| 3 | `start()` promise not handled in `bootstrap()` | Bug | `src/main.ts` |
-| 4 | Counter state split / unsynchronised | Code quality | `src/counter.ts`, `src/data/data-store.ts`, `src/app.ts` |
-| 5 | Inconsistent `AppEvent.UI` vs `UIEvent` access | Code quality | `src/app.ts` |
-| 6 | Event handlers lack arrow binding | Code quality | `src/app.ts` |
-| 7 | `.js` extension in test import | Consistency | `src/sum.test.ts` |
-| 8 | Placeholder title and favicon | Cleanup | `index.html` |
-| 9 | Orphaned `patch-package` dependency | Cleanup | `package.json` |
-| 10 | Unexplained `js-yaml` override | Cleanup | `package.json` |
+| #   | Issue                                          | Severity     | File                                                     | Status                                    |
+| --- | ---------------------------------------------- | ------------ | -------------------------------------------------------- | ----------------------------------------- |
+| 1   | `UIEvent.Layout.Expand` not in `UIEventMap`    | Bug          | `src/event/ui.ts`                                        | ✓ Fixed                                   |
+| 2   | `setTimeout` handles not cleared in `stop()`   | Bug          | `src/app.ts`                                             | Open                                      |
+| 3   | `start()` promise not handled in `bootstrap()` | Bug          | `src/main.ts`                                            | ✓ Fixed                                   |
+| 4   | Counter state split / unsynchronised           | Code quality | `src/counter.ts`, `src/data/data-store.ts`, `src/app.ts` | ✓ Fixed                                   |
+| 5   | Inconsistent `AppEvent.UI` vs `UIEvent` access | Code quality | `src/app.ts`                                             | ✓ Fixed                                   |
+| 6   | Event handlers lack arrow binding              | Code quality | `src/app.ts`                                             | ✓ Fixed                                   |
+| 7   | `.js` extension in test import                 | Consistency  | `src/sum.test.ts`                                        | ✓ Fixed                                   |
+| 8   | Placeholder title and favicon                  | Cleanup      | `index.html`                                             | Partial (title done, favicon outstanding) |
+| 9   | Orphaned `patch-package` dependency            | Cleanup      | `package.json`                                           | Open                                      |
+| 10  | Unexplained `js-yaml` override                 | Cleanup      | `package.json`                                           | Open                                      |

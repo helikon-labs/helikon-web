@@ -17,6 +17,7 @@ export const UIEvent = {
 export type UIEventMap = {
     [UIEvent.Layout.Resize]: { width: number; height: number };
     [UIEvent.Layout.Collapse]: { panel: string };
+    [UIEvent.Layout.Expand]: void;
     [UIEvent.Theme.Change]: 'dark' | 'light';
     [UIEvent.Theme.Toggle]: void;
     [UIEvent.Modal.Open]: { id: string; type: string };

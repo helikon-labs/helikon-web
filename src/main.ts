@@ -1,12 +1,13 @@
 import './style.css';
 import { App } from '@/app';
+import { logger } from './logger';
 
 let app: App | undefined;
 
 function bootstrap() {
     if (!app) {
         app = new App();
-        app.start();
+        app.start().catch((err) => logger.error('App failed to start:', err));
     }
 }
 

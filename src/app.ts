@@ -4,7 +4,6 @@ import { setupCounter } from './counter';
 
 import { AppEvent, eventBus, type EventMap } from './event/event';
 import { logger } from './logger';
-import { UIEvent } from './event/ui';
 import { $counter } from './data/data-store';
 
 class App {
@@ -12,17 +11,19 @@ class App {
 
     constructor() {}
 
-    private async onPing(): Promise<void> {
+    private onPing = async (): Promise<void> => {
         logger.info('Pong.');
-    }
+    };
 
-    private async onClose(event: EventMap[typeof AppEvent.Close]): Promise<void> {
+    private onClose = async (event: EventMap[typeof AppEvent.Close]): Promise<void> => {
         logger.info('Close', event.id);
-    }
+    };
 
-    private async onLayoutChange(event: EventMap[typeof UIEvent.Layout.Resize]): Promise<void> {
+    private onLayoutChange = async (
+        event: EventMap[typeof AppEvent.UI.Layout.Resize],
+    ): Promise<void> => {
         logger.info('New height:', event.height);
-    }
+    };
 
     async start() {
         document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -47,17 +48,17 @@ class App {
         try {
             eventBus.on(AppEvent.Ping, this.onPing);
             eventBus.on(AppEvent.Close, this.onClose);
-            eventBus.on(UIEvent.Layout.Resize, this.onLayoutChange);
+            eventBus.on(AppEvent.UI.Layout.Resize, this.onLayoutChange);
 
             const unsub = $counter.subscribe((value, oldValue) => {
                 logger.info(`counter value changed from ${oldValue} to ${value}`);
             });
             this.unsubs.push(unsub);
 
+            // for testing purposes - will be deleted on the actual site
             setTimeout(() => {
                 eventBus.emit(AppEvent.Ping);
                 eventBus.emit(AppEvent.Close, { id: 'close-id-200' });
-                $counter.set($counter.get() + 2);
             }, 2500);
 
             setTimeout(() => {
@@ -72,7 +73,7 @@ class App {
         logger.info('Stop app.');
         eventBus.off(AppEvent.Ping, this.onPing);
         eventBus.off(AppEvent.Close, this.onClose);
-        eventBus.off(UIEvent.Layout.Resize, this.onLayoutChange);
+        eventBus.off(AppEvent.UI.Layout.Resize, this.onLayoutChange);
         for (const unsub of this.unsubs) {
             unsub();
         }

@@ -1,9 +1,8 @@
+import { $counter } from './data/data-store';
+
 export function setupCounter(element: HTMLButtonElement) {
-    let counter = 0;
-    const setCounter = (count: number) => {
-        counter = count;
-        element.innerHTML = `count is ${counter}`;
-    };
-    element.addEventListener('click', () => setCounter(counter + 1));
-    setCounter(0);
+    $counter.subscribe((value, _oldValue) => {
+        element.innerHTML = `count is ${value}`;
+    });
+    element.addEventListener('click', () => $counter.set($counter.get() + 1));
 }
