@@ -61,11 +61,9 @@ All handlers in `src/app.ts` are now arrow function class properties (`onPing`, 
 - ~~The page `<title>` is `"Vite + TS"`~~ ✓ Fixed — title is now `"Helikon Home"`.
 - The favicon still references `/vite.svg` — the Vite logo placeholder. Should be replaced with the real project favicon.
 
-### 9. Orphaned `patch-package` devDependency
+### ~~9. Orphaned `patch-package` devDependency~~ ✓ Fixed
 
-**File:** `package.json`
-
-`patch-package` is listed in `devDependencies` but there is no `patches/` directory and no `postinstall` script wiring it up. Either the patches were never committed or this is a leftover from another project. It should be removed if not in use.
+`patch-package` has been removed from `devDependencies`.
 
 ### ~~10. Unexplained `js-yaml` override~~ ✓ Fixed
 
@@ -85,5 +83,5 @@ An `overridesDescription` field was added to `package.json` explaining the reaso
 | 6   | Event handlers lack arrow binding              | Code quality | `src/app.ts`                                             | ✓ Fixed                                   |
 | 7   | `.js` extension in test import                 | Consistency  | `src/sum.test.ts`                                        | ✓ Fixed                                   |
 | 8   | Placeholder title and favicon                  | Cleanup      | `index.html`                                             | Partial (title done, favicon outstanding) |
-| 9   | Orphaned `patch-package` dependency            | Cleanup      | `package.json`                                           | Open                                      |
+| 9   | Orphaned `patch-package` dependency            | Cleanup      | `package.json`                                           | ✓ Fixed                                   |
 | 10  | Unexplained `js-yaml` override                 | Cleanup      | `package.json`                                           | ✓ Fixed                                   |
