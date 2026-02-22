@@ -67,17 +67,9 @@ All handlers in `src/app.ts` are now arrow function class properties (`onPing`, 
 
 `patch-package` is listed in `devDependencies` but there is no `patches/` directory and no `postinstall` script wiring it up. Either the patches were never committed or this is a leftover from another project. It should be removed if not in use.
 
-### 10. Unexplained `js-yaml` override
+### ~~10. Unexplained `js-yaml` override~~ ✓ Fixed
 
-**File:** `package.json`
-
-```json
-"overrides": {
-    "js-yaml": ">=4.1.1"
-}
-```
-
-`js-yaml` is not a direct dependency, so this pins a transitive dep — likely in response to a security advisory. It is fine to keep, but a comment explaining the reason would help future contributors understand the intent.
+An `overridesDescription` field was added to `package.json` explaining the reason: `"Overrides the default due to a dependabot security warning."`
 
 ---
 
@@ -94,4 +86,4 @@ All handlers in `src/app.ts` are now arrow function class properties (`onPing`, 
 | 7   | `.js` extension in test import                 | Consistency  | `src/sum.test.ts`                                        | ✓ Fixed                                   |
 | 8   | Placeholder title and favicon                  | Cleanup      | `index.html`                                             | Partial (title done, favicon outstanding) |
 | 9   | Orphaned `patch-package` dependency            | Cleanup      | `package.json`                                           | Open                                      |
-| 10  | Unexplained `js-yaml` override                 | Cleanup      | `package.json`                                           | Open                                      |
+| 10  | Unexplained `js-yaml` override                 | Cleanup      | `package.json`                                           | ✓ Fixed                                   |

@@ -22,7 +22,7 @@
         "nanostores": "^1.1.0"
     },
     "devDependencies": {
-        "@eslint/js": "^9.39.2",
+        "@eslint/js": "^10.0.1",
         "browserslist": "^4.28.1",
         "eslint": "^10.0.1",
         "eslint-config-prettier": "^10.1.8",
@@ -36,5 +36,8 @@
     },
     "overrides": {
         "js-yaml": ">=4.1.1"
+    },
+    "overridesDescription": {
+        "js-yaml": "Overrides the default due to a dependabot security warning."
     }
 }
