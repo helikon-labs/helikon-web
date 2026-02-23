@@ -11,10 +11,9 @@ The original stack has no rendering layer. Adding one is the main decision, and 
 - Most popular choice among developers building lean, modern, composable UIs
 - Compiler-based — ships minimal runtime, no virtual DOM
 - Component-scoped CSS built-in, processed by `lightningcss` via `vitePreprocess()`
-- `nanostores` has first-class Svelte bindings — the existing data layer carries over cleanly
 - No Tailwind needed — Svelte's `<style>` blocks solve style isolation without class verbosity
 
-**Reactivity split:** use Svelte's `$state` / `$derived` runes for local component state, and `nanostores` for shared cross-component state. This is a natural and clean division.
+**Reactivity:** Svelte's runes (`$state`, `$derived`, `$effect`) handle all reactive state — local and shared. Shared state lives in plain `.svelte.ts` files and is imported directly into components. `nanostores` is not needed.
 
 ---
 
@@ -22,29 +21,27 @@ The original stack has no rendering layer. Adding one is the main decision, and 
 
 ### Build & Tooling
 
-| Package                                              | Role                                                              |
-| ---------------------------------------------------- | ----------------------------------------------------------------- |
-| `vite`                                               | Dev server and bundler (esbuild + Rollup)                         |
-| `@sveltejs/vite-plugin-svelte`                       | Svelte compiler integration for Vite                              |
-| `typescript`                                         | Type safety                                                       |
-| `svelte-check`                                       | Type checking for `.svelte` files                                 |
-| `lightningcss` + `browserslist`                      | CSS transforms, vendor prefixes, minification (via vitePreprocess)|
-| `esbuild`                                            | JS minification (via Vite)                                        |
-| `vitest` + `@testing-library/svelte`                 | Unit and component testing                                        |
-| `eslint` + `typescript-eslint` + `eslint-plugin-svelte` | Linting                                                        |
-| `prettier` + `eslint-config-prettier` + `prettier-plugin-svelte` | Formatting                                             |
+| Package                                                          | Role                                                               |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------ |
+| `vite`                                                           | Dev server and bundler (esbuild + Rollup)                          |
+| `@sveltejs/vite-plugin-svelte`                                   | Svelte compiler integration for Vite                               |
+| `typescript`                                                     | Type safety                                                        |
+| `svelte-check`                                                   | Type checking for `.svelte` files                                  |
+| `lightningcss` + `browserslist`                                  | CSS transforms, vendor prefixes, minification (via vitePreprocess) |
+| `esbuild`                                                        | JS minification (via Vite)                                         |
+| `vitest` + `@testing-library/svelte`                             | Unit and component testing                                         |
+| `eslint` + `typescript-eslint` + `eslint-plugin-svelte`          | Linting                                                            |
+| `prettier` + `eslint-config-prettier` + `prettier-plugin-svelte` | Formatting                                                         |
 
 ### Runtime
 
-| Package              | Role                                                              |
-| -------------------- | ----------------------------------------------------------------- |
-| `svelte`             | Rendering layer — compiled components, scoped CSS, runes          |
-| `nanostores`         | Shared reactive state (cross-component atoms and computed stores) |
-| `@nanostores/svelte` | Svelte bindings for nanostores                                    |
-| `mitt`               | Typed pub/sub event bus                                           |
-| `ky`                 | HTTP client (lightweight fetch wrapper)                           |
-| `date-fns`           | Date formatting and manipulation                                  |
-| `lucide-svelte`      | Icon set — Svelte-native version of Lucide                        |
+| Package         | Role                                             |
+| --------------- | ------------------------------------------------ |
+| `svelte`        | Rendering layer — compiled components, scoped CSS, runes |
+| `mitt`          | Typed pub/sub event bus                          |
+| `ky`            | HTTP client (lightweight fetch wrapper)          |
+| `date-fns`      | Date formatting and manipulation                 |
+| `lucide-svelte` | Icon set — Svelte-native version of Lucide       |
 
 ---
 
@@ -52,15 +49,17 @@ The original stack has no rendering layer. Adding one is the main decision, and 
 
 ### Router
 
-| Package              | Gzip | Notes                                                                                                                                     |
-| -------------------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `@nanostores/router` | ~1kb | URL routing as nanostores atoms. Integrates with `@nanostores/svelte` — routes are reactive and typed. Zero dependencies.                |
+| Package             | Gzip | Notes                                                                                                                               |
+| ------------------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `svelte-spa-router` | ~6kb | Lightweight client-side router for standalone Svelte SPAs. Component-based route mapping, hash and history mode, typed route params. |
+
+> SvelteKit includes file-based routing but is a full meta-framework (SSR, server functions, etc.) — overkill for a pure client-side SPA.
 
 ### Animations
 
-| Package   | Gzip  | Notes                                                                                                                                          |
-| --------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `animejs` | ~6kb  | Modular, tree-shakeable animation library. Timeline-based, well-suited to sequenced macro-animations. Lighter than `motion` (~18kb).           |
+| Package   | Gzip | Notes                                                                                                                        |
+| --------- | ---- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `animejs` | ~6kb | Modular, tree-shakeable animation library. Timeline-based, well-suited to sequenced macro-animations. Lighter than `motion` (~18kb). |
 
 > For micro-animations (hover states, enter/exit transitions), Svelte's built-in `transition:`, `animate:`, and `use:` directives are zero-cost — no library needed.
 
@@ -74,28 +73,26 @@ The original stack has no rendering layer. Adding one is the main decision, and 
 
 ### Validation / Schema
 
-| Package   | Gzip        | Notes                                                                                                                                             |
-| --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `valibot` | ~1kb (core) | Tree-shakeable TypeScript-first schema validation. Only bundles the validators you use. A lightweight alternative to Zod (~20kb bundle).          |
+| Package   | Gzip        | Notes                                                                                                                                    |
+| --------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `valibot` | ~1kb (core) | Tree-shakeable TypeScript-first schema validation. Only bundles the validators you use. A lightweight alternative to Zod (~20kb bundle). |
 
 ### Floating UI elements
 
-| Package              | Gzip  | Notes                                                                                                                     |
-| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------- |
-| `@floating-ui/svelte`| ~10kb | Svelte-native wrapper around Floating UI. Positioning engine for tooltips, dropdowns, popovers, and context menus.       |
+| Package               | Gzip  | Notes                                                                                                                |
+| --------------------- | ----- | -------------------------------------------------------------------------------------------------------------------- |
+| `@floating-ui/svelte` | ~10kb | Svelte-native wrapper around Floating UI. Positioning engine for tooltips, dropdowns, popovers, and context menus.  |
 
 ---
 
 ## Optional / Situational
 
-| Package             | Gzip  | Role                              | When to add                                                                                   |
-| ------------------- | ----- | --------------------------------- | --------------------------------------------------------------------------------------------- |
-| `@nanostores/query` | ~2kb  | Query + mutation state management | When HTTP requests need caching, deduplication, or loading/error state                        |
-| `@nanostores/i18n`  | ~2kb  | Internationalisation              | Multi-language support; integrates with the existing nanostores layer                         |
-| `virtua`            | ~3kb  | Virtual list and grid rendering   | Long scrollable lists (1,000+ items) where DOM count affects performance                      |
-| `micromark`         | ~10kb | Markdown parsing and rendering    | When rendering user-generated or CMS content as markdown                                      |
-| `focus-trap`        | ~2kb  | Focus trapping for modals/dialogs | Accessible modal and dialog implementation                                                    |
-| `open-props`        | ~5kb  | CSS custom property design tokens | When you want a consistent spacing, colour, and type scale out of the box without a framework |
+| Package      | Gzip  | Role                              | When to add                                                                                   |
+| ------------ | ----- | --------------------------------- | --------------------------------------------------------------------------------------------- |
+| `virtua`     | ~3kb  | Virtual list and grid rendering   | Long scrollable lists (1,000+ items) where DOM count affects performance                      |
+| `micromark`  | ~10kb | Markdown parsing and rendering    | When rendering user-generated or CMS content as markdown                                      |
+| `focus-trap` | ~2kb  | Focus trapping for modals/dialogs | Accessible modal and dialog implementation                                                    |
+| `open-props` | ~5kb  | CSS custom property design tokens | When you want a consistent spacing, colour, and type scale out of the box without a framework |
 
 ---
 
@@ -113,8 +110,8 @@ new Intl.RelativeTimeFormat('en', { numeric: 'auto' }).format(-1, 'day');
 // → "yesterday"
 
 // Lists
-new Intl.ListFormat('en', { type: 'conjunction' }).format(['Svelte', 'nanostores', 'ky']);
-// → "Svelte, nanostores, and ky"
+new Intl.ListFormat('en', { type: 'conjunction' }).format(['Svelte', 'Vite', 'ky']);
+// → "Svelte, Vite, and ky"
 ```
 
 `date-fns` handles date formatting. Only reach for an additional library if `Intl` is genuinely insufficient.
@@ -168,16 +165,46 @@ No utility-first framework (e.g. Tailwind) is needed or recommended. Svelte's sc
 
 ---
 
+## Implementation Task: Pokédex Mini
+
+A deliberately simple two-route SPA designed to exercise the core characteristics of each stack variant: component model, local state, shared state, HTTP fetching, and routing. Build it, then compare how each framework handles the same problems.
+
+**Routes:**
+- `/` — List view: fetch the first 50 Pokémon, display as a card grid, filter by name in real-time
+- `/pokemon/:name` — Detail view: sprite, types, and base stats with a Favourite toggle
+
+**Components:**
+1. `Header` — app title and a live badge showing the count of favourited Pokémon (reads shared state)
+2. `PokemonList` — fetches the list via `ky`, renders `PokemonCard` per result; text input filters in real-time (local state)
+3. `PokemonCard` — sprite thumbnail, name, link to detail route
+4. `PokemonDetail` — fetches full Pokémon data; Favourite toggle reads and writes shared state
+
+**Shared state:** a set of favourited Pokémon names — written and read by `PokemonDetail`, read as a count by `Header`.
+
+**API (no auth required):**
+```
+GET https://pokeapi.co/api/v2/pokemon?limit=50
+GET https://pokeapi.co/api/v2/pokemon/:name
+```
+
+**Svelte-specific notes:**
+- Declare `favourites` as `$state` in a `.svelte.ts` module and import it into both `Header` and `PokemonDetail`
+- Use `svelte-spa-router` for the two routes — map `/` to `PokemonList` and `/pokemon/:name` to `PokemonDetail`
+- Use Svelte's `{#await}` block to handle loading and error states for both fetch calls
+- The search filter is local `$state` inside `PokemonList`, used in an `{#each}` block with a `.filter()` on the fetched array
+
+---
+
 ## Trade-offs vs the Vanilla Stack
 
-| | Vanilla (`STACK.md`) | Svelte (`STACK-SVELTE.md`) |
-|---|---|---|
-| Rendering | None (bring your own) | Svelte compiler |
-| Component model | Manual DOM / Web Components | `.svelte` single-file components |
-| Local state | nanostores or manual | Svelte runes (`$state`, `$derived`) |
-| Shared state | nanostores | nanostores + `@nanostores/svelte` |
-| CSS | lightningcss on `.css` files | lightningcss on all styles via `vitePreprocess()` |
-| Micro-animations | CSS / WAAPI | Svelte `transition:` / `animate:` directives |
-| Portability | High — no framework lock-in | Medium — components are Svelte-specific |
-| DX | Explicit, verbose | Ergonomic, low boilerplate |
-| Bundle overhead | Zero runtime | ~2–4kb Svelte runtime |
+|                  | Vanilla (`STACK.md`)          | Svelte (`STACK-SVELTE.md`)                  |
+| ---------------- | ----------------------------- | ------------------------------------------- |
+| Rendering        | None (bring your own)         | Svelte compiler                             |
+| Component model  | Manual DOM / Web Components   | `.svelte` single-file components            |
+| Local state      | Manual                        | Svelte runes (`$state`, `$derived`)         |
+| Shared state     | nanostores                    | Svelte runes in `.svelte.ts` files          |
+| CSS              | lightningcss on `.css` files  | lightningcss on all styles via `vitePreprocess()` |
+| Micro-animations | CSS / WAAPI                   | Svelte `transition:` / `animate:` directives |
+| Portability      | High — no framework lock-in   | Medium — components are Svelte-specific     |
+| DX               | Explicit, verbose             | Ergonomic, low boilerplate                  |
+| Bundle overhead  | Zero runtime                  | ~2–4kb Svelte runtime                       |
