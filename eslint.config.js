@@ -40,6 +40,12 @@ export default defineConfig(
             '@typescript-eslint/ban-ts-comment': 'off',
         },
     },
+    {
+        files: ['**/*.test.{ts,tsx}'],
+        rules: {
+            'no-console': 'off',
+        },
+    },
     prettier,
     {
         ignores: ['dist/', 'node_modules/', '.vite/', 'coverage/'],
