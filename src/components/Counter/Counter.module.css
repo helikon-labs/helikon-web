@@ -3,7 +3,7 @@
     border-radius: var(--radius-md);
     border-width: 0px;
     padding: 0.6em 1.2em;
-    font-size: var(--text-base);
+    font-size: var(--color-text);
     font-weight: var(--font-medium);
     font-family: inherit;
     color: var(--text-base);
@@ -14,9 +14,13 @@
     &:hover {
         background-color: var(--color-surface-raised);
     }
-    &:focus,
-    &:focus-visible {
+
+    &:focus:not(:focus-visible) {
         outline: none;
         box-shadow: none;
+    }
+    &:focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 2px;
     }
 }
