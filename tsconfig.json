@@ -15,6 +15,10 @@
         "noEmit": true,
         "types": ["vite/client"],
 
+        /* jsx */
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js",
+
         /* path alias (match resolve.alias) */
         "paths": {
             "@/*": ["./src/*"]
@@ -31,7 +35,7 @@
         "noFallthroughCasesInSwitch": true,
         "noUncheckedSideEffectImports": true,
         "erasableSyntaxOnly": true,
-        "noUncheckedIndexedAccess": true,
+        "noUncheckedIndexedAccess": true
     },
     "include": ["src"]
 }

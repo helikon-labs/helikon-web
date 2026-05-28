@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite';
 import browserslist from 'browserslist';
 import { browserslistToTargets } from 'lightningcss';
+import browserslistToEsbuild from 'browserslist-to-esbuild';
+import solid from 'vite-plugin-solid';
 
-const cssTargets = browserslistToTargets(browserslist());
-const jsTarget = 'es2022';
+const browsers = browserslist();
 
 export default defineConfig({
     cacheDir: '.vite',
@@ -16,14 +17,15 @@ export default defineConfig({
         port: 5173,
     },
     preview: { port: 4173 },
+    plugins: [solid()],
     css: {
         transformer: 'lightningcss',
         lightningcss: {
-            targets: cssTargets,
+            targets: browserslistToTargets(browsers),
         },
     },
     build: {
-        target: jsTarget,
+        target: browserslistToEsbuild(browsers),
         sourcemap: true,
         cssMinify: 'lightningcss',
         minify: 'oxc', // use 'terser' for max compression

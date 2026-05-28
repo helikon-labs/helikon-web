@@ -1,15 +1,31 @@
 import js from '@eslint/js';
+import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 import prettier from 'eslint-config-prettier';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import solid from 'eslint-plugin-solid/configs/typescript';
 
-export default tseslint.config(
+export default defineConfig(
     js.configs.recommended,
     ...tseslint.configs.recommended,
-    prettier,
     {
-        files: ['**/*.{js,ts}'],
+        files: ['**/*.{ts,tsx}'],
+        ...solid,
+    },
+    {
+        files: ['**/*.{js,ts,tsx}'],
+        plugins: {
+            'jsx-a11y': jsxA11y,
+        },
+        languageOptions: {
+            parserOptions: {
+                ecmaFeatures: {
+                    jsx: true,
+                },
+            },
+        },
         rules: {
-            // Your custom rules
+            'jsx-a11y/alt-text': 'error',
             'no-console': 'warn',
             'no-unused-vars': 'off',
             '@typescript-eslint/no-unused-vars': [
@@ -24,7 +40,8 @@ export default tseslint.config(
             '@typescript-eslint/ban-ts-comment': 'off',
         },
     },
+    prettier,
     {
-        ignores: ['dist/', 'node_modules/', '*.config.js', '.vite/', 'coverage/', 'public/'],
+        ignores: ['dist/', 'node_modules/', '.vite/', 'coverage/'],
     },
 );
