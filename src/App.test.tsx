@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from '@solidjs/testing-library';
+import { cleanup, fireEvent, render, screen } from '@solidjs/testing-library';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import App from '@/App';
 import { AppEvent, eventBus } from '@/event/event';
@@ -8,6 +8,10 @@ describe('App', () => {
     let triggerSystemThemeChange: (isDark: boolean) => void;
 
     beforeEach(() => {
+        vi.stubGlobal('localStorage', {
+            getItem: vi.fn().mockReturnValue(null),
+            setItem: vi.fn(),
+        });
         vi.spyOn(logger, 'info').mockImplementation(() => {});
 
         const mqlListeners: ((e: Partial<MediaQueryListEvent>) => void)[] = [];
@@ -30,6 +34,8 @@ describe('App', () => {
     });
 
     afterEach(() => {
+        document.documentElement.removeAttribute('data-theme');
+        vi.unstubAllGlobals();
         cleanup();
         vi.restoreAllMocks();
         eventBus.all.clear();
@@ -62,15 +68,20 @@ describe('App', () => {
             render(() => <App />);
             expect(screen.getByText(/Click on the Vite/)).toBeInTheDocument();
         });
+
+        it('renders the theme switcher', () => {
+            render(() => <App />);
+            expect(screen.getByRole('button', { name: /theme/i })).toBeInTheDocument();
+        });
     });
 
     describe('theme', () => {
-        it('emits light theme on mount when system is light', () => {
+        it('sets data-theme to light on mount when system is light', () => {
             render(() => <App />);
-            expect(logger.info).toHaveBeenCalledWith('Theme:', 'light');
+            expect(document.documentElement).toHaveAttribute('data-theme', 'light');
         });
 
-        it('emits dark theme on mount when system is dark', () => {
+        it('sets data-theme to dark on mount when system is dark', () => {
             Object.defineProperty(window, 'matchMedia', {
                 writable: true,
                 value: vi.fn().mockReturnValue({
@@ -80,19 +91,26 @@ describe('App', () => {
                 }),
             });
             render(() => <App />);
-            expect(logger.info).toHaveBeenCalledWith('Theme:', 'dark');
+            expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
         });
 
-        it('logs theme change when system theme changes to dark', () => {
+        it('updates data-theme when system theme changes to dark', () => {
             render(() => <App />);
             triggerSystemThemeChange(true);
-            expect(logger.info).toHaveBeenCalledWith('Theme:', 'dark');
+            expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
         });
 
-        it('logs theme change when system theme changes to light', () => {
+        it('updates data-theme when system theme changes to light', () => {
             render(() => <App />);
             triggerSystemThemeChange(false);
-            expect(logger.info).toHaveBeenCalledWith('Theme:', 'light');
+            expect(document.documentElement).toHaveAttribute('data-theme', 'light');
+        });
+
+        it('emits theme change event and logs it when theme switcher is clicked', () => {
+            render(() => <App />);
+            const switcher = screen.getByRole('button', { name: /theme/i });
+            fireEvent.click(switcher);
+            expect(logger.info).toHaveBeenCalledWith('Theme:', expect.stringMatching(/dark|light/));
         });
     });
 

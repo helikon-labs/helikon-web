@@ -1,0 +1,22 @@
+.counter {
+    min-width: 140px;
+    border-radius: var(--radius-md);
+    border-width: 0px;
+    padding: 0.6em 1.2em;
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+    font-family: inherit;
+    color: var(--text-base);
+    background-color: var(--color-surface);
+    cursor: pointer;
+
+    transition: border-color var(--duration-normal);
+    &:hover {
+        background-color: var(--color-surface-raised);
+    }
+    &:focus,
+    &:focus-visible {
+        outline: none;
+        box-shadow: none;
+    }
+}

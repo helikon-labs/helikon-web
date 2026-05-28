@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@solidjs/testing-library';
 import { beforeEach, describe, expect, it } from 'vitest';
-import { Counter } from '@/components/Counter';
+import { Counter } from '@/components/Counter/Counter';
 import { setCounter } from '@/store/data-store';
 
 describe('Counter', () => {

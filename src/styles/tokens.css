@@ -1,8 +1,9 @@
 :root {
     /* --- colors --- */
-    --color-bg: oklch(9% 0 0);
-    --color-surface: oklch(14% 0 0);
-    --color-border: oklch(22% 0 0);
+    --color-bg: oklch(5% 0 0);
+    --color-surface: oklch(25% 0 0);
+    --color-surface-raised: oklch(35% 0 0);
+    --color-border: oklch(40% 0 0);
     --color-text: oklch(87% 0 0);
     --color-text-muted: oklch(60% 0 0);
     --color-accent: oklch(63% 0.22 264);
@@ -71,16 +72,15 @@
     --z-toast: 400;
 }
 
-@media (prefers-color-scheme: light) {
-    :root {
-        --color-bg: oklch(100% 0 0);
-        --color-surface: oklch(97% 0 0);
-        --color-border: oklch(85% 0 0);
-        --color-text: oklch(26% 0.04 222);
-        --color-text-muted: oklch(50% 0 0);
-        --color-accent-hover: color-mix(in oklch, var(--color-accent), black 8%);
-        --shadow-sm: 0 1px 3px oklch(0% 0 0 / 10%);
-        --shadow-md: 0 4px 12px oklch(0% 0 0 / 15%);
-        --shadow-lg: 0 8px 24px oklch(0% 0 0 / 20%);
-    }
+[data-theme='light'] {
+    --color-bg: oklch(100% 0 0);
+    --color-surface: oklch(95% 0 0);
+    --color-surface-raised: oklch(90% 0 0);
+    --color-border: oklch(85% 0 0);
+    --color-text: oklch(26% 0.04 222);
+    --color-text-muted: oklch(50% 0 0);
+    --color-accent-hover: color-mix(in oklch, var(--color-accent), black 8%);
+    --shadow-sm: 0 1px 3px oklch(0% 0 0 / 10%);
+    --shadow-md: 0 4px 12px oklch(0% 0 0 / 15%);
+    --shadow-lg: 0 8px 24px oklch(0% 0 0 / 20%);
 }

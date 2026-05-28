@@ -1,0 +1,32 @@
+.theme-switcher {
+    position: fixed;
+    top: var(--space-4);
+    right: var(--space-4);
+    z-index: var(--z-raised);
+
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-width: 0px;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+
+    transition:
+        background-color var(--duration-fast),
+        border-color var(--duration-fast),
+        color var(--duration-fast);
+    &:hover {
+        background-color: var(--color-surface-raised);
+    }
+    &:focus,
+    &:focus-visible {
+        outline: none;
+        box-shadow: none;
+    }
+}
