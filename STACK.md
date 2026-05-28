@@ -18,16 +18,19 @@ A high-performance, modular, reactive web application stack built around SolidJS
 
 ```
 src/
-  main.tsx          # Entry point — mounts the Solid app
+  index.tsx         # Entry point — mounts the Solid app
   App.tsx           # Root component — global listeners, app lifecycle
-  style.css         # Global styles
+  assets/           # Images, SVGs, fonts
   components/       # Reusable UI components (.tsx)
-  data/             # Shared application state (Solid signals and stores)
   event/            # Typed event bus definitions
     base.ts         # App-level events (visibility, ping, etc.)
     ui.ts           # UI-level events (layout, theme, etc.)
     event.ts        # Assembles AppEvent and EventMap, exports eventBus
-  logger.ts         # Thin console wrapper (dev-only debug, eslint-suppressed)
+  examples/         # Reference examples (kept for documentation, not production use)
+  pages/            # Route-level page components
+  store/            # Shared application state (Solid signals and stores)
+  styles/           # Global CSS, design tokens, resets
+  utils/            # Pure utility functions (logger, formatters, etc.)
 ```
 
 Path alias: `@/` maps to `src/`. Use `@/components/Button` instead of relative paths.

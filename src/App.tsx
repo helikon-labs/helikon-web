@@ -1,8 +1,8 @@
 import { onMount, onCleanup } from 'solid-js';
-import typescriptLogo from '@/typescript.svg';
 import { Counter } from '@/components/Counter';
 import { AppEvent, eventBus, type EventMap } from '@/event/event';
-import { logger } from '@/logger';
+import { logger } from '@/utils/logger';
+import typescriptLogo from '@/assets/typescript.svg';
 
 export default function App() {
     const onHidden = (): void => {

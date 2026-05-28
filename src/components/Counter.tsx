@@ -1,4 +1,4 @@
-import { counter, setCounter } from '@/data/data-store';
+import { counter, setCounter } from '@/store/data-store';
 
 export function Counter() {
     return (
