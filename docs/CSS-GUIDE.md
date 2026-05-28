@@ -196,6 +196,7 @@ Layers give explicit control over override order, eliminating specificity confli
 /* src/styles/style.css */
 @layer reset, tokens, base, components;
 
+@import 'modern-normalize' layer(reset);
 @import './tokens.css' layer(tokens);
 @import './base.css' layer(base);
 @import './breakpoints.css';

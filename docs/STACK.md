@@ -39,16 +39,17 @@ Path alias: `@/` maps to `src/`. Use `@/components/Button` instead of relative p
 
 ## Build & Tooling
 
-| Package                                                | Role                                                                           |
-| ------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `vite` + `vite-plugin-solid`                           | Dev server, bundler, and Solid JSX compiler                                    |
-| `typescript`                                           | Type safety — strict mode, no emit (Vite owns transpilation)                   |
-| `lightningcss` + `browserslist`                        | CSS transforms, nesting, vendor prefixes, minification                         |
-| `browserslist-to-esbuild`                              | Converts browserslist query to esbuild targets for consistent JS/CSS targeting |
-| `vitest` + `@solidjs/testing-library`                  | Unit and component testing                                                     |
-| `eslint` + `typescript-eslint` + `eslint-plugin-solid` | Linting — TS-aware rules + Solid-specific reactivity rules                     |
-| `eslint-plugin-jsx-a11y`                               | Accessibility enforcement on JSX elements                                      |
-| `prettier` + `eslint-config-prettier`                  | Formatting — prettier wins on style, eslint wins on correctness                |
+| Package                                                       | Role                                                                           |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| `vite` + `vite-plugin-solid`                                  | Dev server, bundler, and Solid JSX compiler                                    |
+| `typescript`                                                  | Type safety — strict mode, no emit (Vite owns transpilation)                   |
+| `lightningcss` + `browserslist`                               | CSS transforms, nesting, vendor prefixes, minification                         |
+| `browserslist-to-esbuild`                                     | Converts browserslist query to esbuild targets for consistent JS/CSS targeting |
+| `vitest` + `@solidjs/testing-library` + `@vitest/coverage-v8` | Unit, component testing, and coverage reports                                  |
+| `@testing-library/jest-dom` + `jsdom`                         | DOM matchers and simulated browser environment for tests                       |
+| `eslint` + `typescript-eslint` + `eslint-plugin-solid`        | Linting — TS-aware rules + Solid-specific reactivity rules                     |
+| `eslint-plugin-jsx-a11y`                                      | Accessibility enforcement on JSX elements                                      |
+| `prettier` + `eslint-config-prettier`                         | Formatting — prettier wins on style, eslint wins on correctness                |
 
 Browser targets are defined once in `package.json` (`browserslist` field) and consumed by both `lightningcss` (CSS) and `browserslist-to-esbuild` (JS). The build target and CSS target always stay in sync.
 
@@ -410,10 +411,10 @@ trap.deactivate();
 
 ### State management
 
-Shared state lives in `.ts` files under `src/data/` as module-level Solid signals and stores. Import directly — no providers, no context, no wiring.
+Shared state lives in `.ts` files under `src/store/` as module-level Solid signals and stores. Import directly — no providers, no context, no wiring.
 
 ```ts
-// src/data/data-store.ts
+// src/store/data-store.ts
 import { createSignal, createStore } from 'solid-js';
 
 export const [counter, setCounter] = createSignal(0);
@@ -422,7 +423,7 @@ export const [settings, setSettings] = createStore({ theme: 'dark', language: 'e
 
 ```tsx
 // Any component, anywhere
-import { counter, settings } from '@/data/data-store';
+import { counter, settings } from '@/store/data-store';
 
 <p>
     Count: {counter()}, Theme: {settings.theme}
@@ -493,12 +494,15 @@ Use `@layer` for cascade management, CSS nesting for component structure. `light
 ## Development Workflow
 
 ```bash
-npm run dev          # dev server at localhost:5173
-npm run build        # tsc type-check, then vite build to dist/
-npm run preview      # serve dist/ at localhost:4173
-npm run lint         # eslint
-npm run lint:check   # eslint, fail on any warning
-npm run format       # prettier write
-npm run format:check # prettier check
-npm run test         # vitest run
+npm run dev           # dev server at localhost:5173
+npm run build         # type-check, then vite build to dist/
+npm run preview       # serve dist/ at localhost:4173
+npm run typecheck     # type-check without building
+npm run test          # vitest run
+npm run test:coverage # vitest run with coverage report
+npm run lint          # eslint
+npm run lint:check    # eslint, fail on any warning
+npm run format        # prettier write
+npm run format:check  # prettier check
+npm run ci:check      # full CI gate: lint, typecheck, coverage, build
 ```

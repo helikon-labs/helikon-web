@@ -9,8 +9,12 @@
         "not dead",
         "not ie 11"
     ],
+    "engines": {
+        "node": ">=23"
+    },
     "scripts": {
-        "build": "tsc && vite build",
+        "build": "npm run typecheck && vite build",
+        "ci:check": "npm run lint:check && npm run typecheck && npm run test:coverage && npm run build",
         "dev": "vite",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
@@ -18,36 +22,45 @@
         "lint:fix": "eslint . --fix",
         "lint:check": "eslint . --max-warnings 0",
         "preview": "vite preview",
-        "test": "vitest run"
+        "test": "vitest run",
+        "test:coverage": "vitest run --coverage",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@floating-ui/dom": "^1.7.6",
+        "@solidjs/router": "^0.16.1",
+        "animejs": "^4.4.1",
+        "date-fns": "^4.3.0",
+        "focus-trap": "^8.2.1",
+        "ky": "^2.0.2",
+        "lucide-solid": "^1.17.0",
+        "mitt": "^3.0.1",
+        "modern-normalize": "^3.0.1",
+        "reconnecting-websocket": "^4.4.0",
+        "solid-js": "^1.9.13",
+        "valibot": "^1.4.1"
     },
     "devDependencies": {
         "@eslint/js": "^9.39.4",
-        "@floating-ui/dom": "^1.7.6",
-        "@solidjs/router": "^0.16.1",
         "@solidjs/testing-library": "^0.8.10",
+        "@testing-library/jest-dom": "^6.9.1",
         "@types/eslint-plugin-jsx-a11y": "^6.10.1",
-        "animejs": "^4.4.1",
+        "@types/node": "^25.9.1",
+        "@vitest/coverage-v8": "^4.1.7",
         "browserslist": "^4.28.2",
         "browserslist-to-esbuild": "^2.1.1",
-        "date-fns": "^4.3.0",
         "eslint": "^9.39.4",
-        "eslint-plugin-jsx-a11y": "^6.10.2",
         "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-jsx-a11y": "^6.10.2",
         "eslint-plugin-solid": "^0.14.5",
-        "focus-trap": "^8.2.1",
-        "ky": "^2.0.2",
+        "jsdom": "^29.1.1",
         "lightningcss": "^1.32.0",
-        "lucide-solid": "^1.17.0",
-        "mitt": "^3.0.1",
         "prettier": "^3.8.3",
-        "reconnecting-websocket": "^4.4.0",
-        "solid-js": "^1.9.13",
         "typescript": "^6.0.3",
         "typescript-eslint": "^8.60.0",
-        "valibot": "^1.4.1",
         "vite": "^8.0.14",
-        "vitest": "^4.1.7",
-        "vite-plugin-solid": "^2.11.12"
+        "vite-plugin-solid": "^2.11.12",
+        "vitest": "^4.1.7"
     },
     "overrides": {
         "js-yaml": ">=4.1.1"

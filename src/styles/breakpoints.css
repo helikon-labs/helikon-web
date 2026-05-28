@@ -1,0 +1,9 @@
+@custom-media --mobile (width < 640px);
+@custom-media --tablet (640px <= width < 1024px);
+@custom-media --desktop (width >= 1024px);
+@custom-media --wide (width >= 1280px);
+
+@custom-media --motion-ok (prefers-reduced-motion: no-preference);
+@custom-media --touch (hover: none) and (pointer: coarse);
+@custom-media --dark (prefers-color-scheme: dark);
+@custom-media --light (prefers-color-scheme: light);

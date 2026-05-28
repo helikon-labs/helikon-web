@@ -3,6 +3,7 @@ import browserslist from 'browserslist';
 import { browserslistToTargets } from 'lightningcss';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import solid from 'vite-plugin-solid';
+import { fileURLToPath, URL } from 'node:url';
 
 const browsers = browserslist();
 
@@ -22,6 +23,9 @@ export default defineConfig({
         transformer: 'lightningcss',
         lightningcss: {
             targets: browserslistToTargets(browsers),
+            drafts: {
+                customMedia: true,
+            },
         },
     },
     build: {
@@ -32,7 +36,7 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            '@': '/src',
+            '@': fileURLToPath(new URL('./src', import.meta.url)),
         },
     },
 });
