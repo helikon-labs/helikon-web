@@ -1,3 +1,3 @@
-import { atom } from 'nanostores';
+import { createSignal } from 'solid-js';
 
-export const $counter = atom(0);
+export const [counter, setCounter] = createSignal(0);

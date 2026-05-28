@@ -1,13 +1,11 @@
 export const BaseEvent = {
-    Open: 'wm:open',
-    Close: 'wm:close',
-    ThemeChange: 'theme:change',
+    Hidden: 'page:hidden',
+    Visible: 'page:visible',
     Ping: 'ping',
 } as const;
 
 export type BaseEventMap = {
-    [BaseEvent.Open]: { id: string; type: string };
-    [BaseEvent.Close]: { id: string };
-    [BaseEvent.ThemeChange]: 'dark' | 'light';
-    [BaseEvent.Ping]: void;
+    [BaseEvent.Hidden]: void;
+    [BaseEvent.Visible]: void;
+    [BaseEvent.Ping]: { message: string };
 };
