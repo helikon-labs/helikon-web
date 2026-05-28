@@ -2,10 +2,7 @@ import { defineConfig } from 'vite';
 import browserslist from 'browserslist';
 import { browserslistToTargets } from 'lightningcss';
 
-const cssTargets = browserslistToTargets(
-    browserslist(['last 2 versions', '> 1%', 'not dead', 'not ie 11']),
-);
-
+const cssTargets = browserslistToTargets(browserslist());
 const jsTarget = 'es2022';
 
 export default defineConfig({
@@ -29,7 +26,7 @@ export default defineConfig({
         target: jsTarget,
         sourcemap: true,
         cssMinify: 'lightningcss',
-        minify: 'esbuild', // use 'terser' for max compression
+        minify: 'oxc', // use 'terser' for max compression
     },
     resolve: {
         alias: {

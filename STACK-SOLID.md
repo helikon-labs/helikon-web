@@ -22,26 +22,26 @@ An alternative to `STACK.md` built around Solid.js as the rendering layer. This 
 
 ### Build & Tooling
 
-| Package                                         | Role                                                              |
-| ----------------------------------------------- | ----------------------------------------------------------------- |
-| `vite` + `vite-plugin-solid`                    | Dev server, bundler, and Solid JSX compiler                       |
-| `typescript`                                    | Type safety                                                       |
-| `lightningcss` + `browserslist`                 | CSS transforms, vendor prefixes, minification                     |
-| `esbuild`                                       | JS minification (via Vite)                                        |
-| `vitest` + `@solidjs/testing-library`           | Unit and component testing                                        |
-| `eslint` + `typescript-eslint` + `eslint-plugin-solid` | Linting                                                   |
-| `prettier` + `eslint-config-prettier`           | Formatting                                                        |
+| Package                                                | Role                                          |
+| ------------------------------------------------------ | --------------------------------------------- |
+| `vite` + `vite-plugin-solid`                           | Dev server, bundler, and Solid JSX compiler   |
+| `typescript`                                           | Type safety                                   |
+| `lightningcss` + `browserslist`                        | CSS transforms, vendor prefixes, minification |
+| `esbuild`                                              | JS minification (via Vite)                    |
+| `vitest` + `@solidjs/testing-library`                  | Unit and component testing                    |
+| `eslint` + `typescript-eslint` + `eslint-plugin-solid` | Linting                                       |
+| `prettier` + `eslint-config-prettier`                  | Formatting                                    |
 
 ### Runtime
 
-| Package            | Role                                                              |
-| ------------------ | ----------------------------------------------------------------- |
-| `solid-js`         | Rendering layer — fine-grained reactive JSX, no virtual DOM       |
-| `@solidjs/router`  | Official first-party router — nested routes, lazy loading, typed  |
-| `mitt`             | Typed pub/sub event bus for non-signal communication              |
-| `ky`               | HTTP client (lightweight fetch wrapper)                           |
-| `date-fns`         | Date formatting and manipulation                                  |
-| `lucide-solid`     | Icon set — Solid-native version of Lucide                         |
+| Package           | Role                                                             |
+| ----------------- | ---------------------------------------------------------------- |
+| `solid-js`        | Rendering layer — fine-grained reactive JSX, no virtual DOM      |
+| `@solidjs/router` | Official first-party router — nested routes, lazy loading, typed |
+| `mitt`            | Typed pub/sub event bus for non-signal communication             |
+| `ky`              | HTTP client (lightweight fetch wrapper)                          |
+| `date-fns`        | Date formatting and manipulation                                 |
+| `lucide-solid`    | Icon set — Solid-native version of Lucide                        |
 
 ---
 
@@ -49,9 +49,9 @@ An alternative to `STACK.md` built around Solid.js as the rendering layer. This 
 
 ### Animations
 
-| Package   | Gzip | Notes                                                                                                                               |
-| --------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `animejs` | ~6kb | Modular, tree-shakeable animation library. Works directly on DOM elements — compatible with Solid's direct-DOM rendering approach.  |
+| Package   | Gzip | Notes                                                                                                                              |
+| --------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `animejs` | ~6kb | Modular, tree-shakeable animation library. Works directly on DOM elements — compatible with Solid's direct-DOM rendering approach. |
 
 > For simple micro-animations, CSS transitions are zero-cost. Solid's `<Transition>` and `<TransitionGroup>` components handle enter/exit animations natively.
 
@@ -114,7 +114,11 @@ Solid uses standard CSS — no Shadow DOM, no scoped styles out of the box. Comp
 import './PokemonCard.css';
 
 export function PokemonCard(props: { name: string }) {
-    return <div class="pokemon-card"><h2>{props.name}</h2></div>;
+    return (
+        <div class="pokemon-card">
+            <h2>{props.name}</h2>
+        </div>
+    );
 }
 ```
 
@@ -124,7 +128,11 @@ export function PokemonCard(props: { name: string }) {
 import styles from './PokemonCard.module.css';
 
 export function PokemonCard(props: { name: string }) {
-    return <div class={styles.card}><h2>{props.name}</h2></div>;
+    return (
+        <div class={styles.card}>
+            <h2>{props.name}</h2>
+        </div>
+    );
 }
 ```
 
@@ -141,10 +149,12 @@ No utility-first framework (e.g. Tailwind) is needed or recommended for this sta
 A deliberately simple two-route SPA designed to exercise the core characteristics of each stack variant: component model, local state, shared state, HTTP fetching, and routing. Build it, then compare how each framework handles the same problems.
 
 **Routes:**
+
 - `/` — List view: fetch the first 50 Pokémon, display as a card grid, filter by name in real-time
 - `/pokemon/:name` — Detail view: sprite, types, and base stats with a Favourite toggle
 
 **Components:**
+
 1. `Header` — app title and a live badge showing the count of favourited Pokémon (reads shared state)
 2. `PokemonList` — fetches the list via `ky`, renders `PokemonCard` per result; text input filters in real-time (local state)
 3. `PokemonCard` — sprite thumbnail, name, link to detail route
@@ -153,12 +163,14 @@ A deliberately simple two-route SPA designed to exercise the core characteristic
 **Shared state:** a set of favourited Pokémon names — written and read by `PokemonDetail`, read as a count by `Header`.
 
 **API (no auth required):**
+
 ```
 GET https://pokeapi.co/api/v2/pokemon?limit=50
 GET https://pokeapi.co/api/v2/pokemon/:name
 ```
 
 **Solid-specific notes:**
+
 - Declare `favourites` as a module-level `createStore` or `createSignal<Set<string>>` and import it directly into `Header` and `PokemonDetail` — no provider needed
 - Use `@solidjs/router` with `<Route>` components; access the `:name` param via `useParams()`
 - Use Solid's built-in `createResource` for both fetch calls — it handles loading/error states and integrates with `<Suspense>` for clean loading UI
@@ -168,14 +180,14 @@ GET https://pokeapi.co/api/v2/pokemon/:name
 
 ## Trade-offs vs the Vanilla Stack
 
-|                  | Vanilla (`STACK.md`)          | Solid (`STACK-SOLID.md`)                          |
-| ---------------- | ----------------------------- | ------------------------------------------------- |
-| Rendering        | None (bring your own)         | Solid compiler + ~7kb runtime                     |
-| Component model  | Manual DOM                    | JSX function components — no classes              |
-| Local state      | Manual                        | `createSignal` — fine-grained, no re-render overhead |
-| Shared state     | nanostores                    | Module-level `createSignal` / `createStore`       |
-| CSS              | lightningcss on `.css` files  | Same — or CSS Modules for scoping                 |
-| Micro-animations | CSS / WAAPI                   | CSS + `<Transition>` component                    |
-| Portability      | High — no framework           | Low — JSX and signals are Solid-specific          |
-| DX               | Explicit                      | Excellent — familiar JSX, simpler than React      |
-| Bundle overhead  | Zero runtime                  | ~7kb Solid runtime                                |
+|                  | Vanilla (`STACK.md`)         | Solid (`STACK-SOLID.md`)                             |
+| ---------------- | ---------------------------- | ---------------------------------------------------- |
+| Rendering        | None (bring your own)        | Solid compiler + ~7kb runtime                        |
+| Component model  | Manual DOM                   | JSX function components — no classes                 |
+| Local state      | Manual                       | `createSignal` — fine-grained, no re-render overhead |
+| Shared state     | nanostores                   | Module-level `createSignal` / `createStore`          |
+| CSS              | lightningcss on `.css` files | Same — or CSS Modules for scoping                    |
+| Micro-animations | CSS / WAAPI                  | CSS + `<Transition>` component                       |
+| Portability      | High — no framework          | Low — JSX and signals are Solid-specific             |
+| DX               | Explicit                     | Excellent — familiar JSX, simpler than React         |
+| Bundle overhead  | Zero runtime                 | ~7kb Solid runtime                                   |

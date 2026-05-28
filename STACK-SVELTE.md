@@ -35,13 +35,13 @@ The original stack has no rendering layer. Adding one is the main decision, and 
 
 ### Runtime
 
-| Package         | Role                                             |
-| --------------- | ------------------------------------------------ |
+| Package         | Role                                                     |
+| --------------- | -------------------------------------------------------- |
 | `svelte`        | Rendering layer — compiled components, scoped CSS, runes |
-| `mitt`          | Typed pub/sub event bus                          |
-| `ky`            | HTTP client (lightweight fetch wrapper)          |
-| `date-fns`      | Date formatting and manipulation                 |
-| `lucide-svelte` | Icon set — Svelte-native version of Lucide       |
+| `mitt`          | Typed pub/sub event bus                                  |
+| `ky`            | HTTP client (lightweight fetch wrapper)                  |
+| `date-fns`      | Date formatting and manipulation                         |
+| `lucide-svelte` | Icon set — Svelte-native version of Lucide               |
 
 ---
 
@@ -49,16 +49,16 @@ The original stack has no rendering layer. Adding one is the main decision, and 
 
 ### Router
 
-| Package             | Gzip | Notes                                                                                                                               |
-| ------------------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Package             | Gzip | Notes                                                                                                                                |
+| ------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `svelte-spa-router` | ~6kb | Lightweight client-side router for standalone Svelte SPAs. Component-based route mapping, hash and history mode, typed route params. |
 
 > SvelteKit includes file-based routing but is a full meta-framework (SSR, server functions, etc.) — overkill for a pure client-side SPA.
 
 ### Animations
 
-| Package   | Gzip | Notes                                                                                                                        |
-| --------- | ---- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Package   | Gzip | Notes                                                                                                                                |
+| --------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `animejs` | ~6kb | Modular, tree-shakeable animation library. Timeline-based, well-suited to sequenced macro-animations. Lighter than `motion` (~18kb). |
 
 > For micro-animations (hover states, enter/exit transitions), Svelte's built-in `transition:`, `animate:`, and `use:` directives are zero-cost — no library needed.
@@ -79,9 +79,9 @@ The original stack has no rendering layer. Adding one is the main decision, and 
 
 ### Floating UI elements
 
-| Package               | Gzip  | Notes                                                                                                                |
-| --------------------- | ----- | -------------------------------------------------------------------------------------------------------------------- |
-| `@floating-ui/svelte` | ~10kb | Svelte-native wrapper around Floating UI. Positioning engine for tooltips, dropdowns, popovers, and context menus.  |
+| Package               | Gzip  | Notes                                                                                                              |
+| --------------------- | ----- | ------------------------------------------------------------------------------------------------------------------ |
+| `@floating-ui/svelte` | ~10kb | Svelte-native wrapper around Floating UI. Positioning engine for tooltips, dropdowns, popovers, and context menus. |
 
 ---
 
@@ -170,10 +170,12 @@ No utility-first framework (e.g. Tailwind) is needed or recommended. Svelte's sc
 A deliberately simple two-route SPA designed to exercise the core characteristics of each stack variant: component model, local state, shared state, HTTP fetching, and routing. Build it, then compare how each framework handles the same problems.
 
 **Routes:**
+
 - `/` — List view: fetch the first 50 Pokémon, display as a card grid, filter by name in real-time
 - `/pokemon/:name` — Detail view: sprite, types, and base stats with a Favourite toggle
 
 **Components:**
+
 1. `Header` — app title and a live badge showing the count of favourited Pokémon (reads shared state)
 2. `PokemonList` — fetches the list via `ky`, renders `PokemonCard` per result; text input filters in real-time (local state)
 3. `PokemonCard` — sprite thumbnail, name, link to detail route
@@ -182,12 +184,14 @@ A deliberately simple two-route SPA designed to exercise the core characteristic
 **Shared state:** a set of favourited Pokémon names — written and read by `PokemonDetail`, read as a count by `Header`.
 
 **API (no auth required):**
+
 ```
 GET https://pokeapi.co/api/v2/pokemon?limit=50
 GET https://pokeapi.co/api/v2/pokemon/:name
 ```
 
 **Svelte-specific notes:**
+
 - Declare `favourites` as `$state` in a `.svelte.ts` module and import it into both `Header` and `PokemonDetail`
 - Use `svelte-spa-router` for the two routes — map `/` to `PokemonList` and `/pokemon/:name` to `PokemonDetail`
 - Use Svelte's `{#await}` block to handle loading and error states for both fetch calls
@@ -197,14 +201,14 @@ GET https://pokeapi.co/api/v2/pokemon/:name
 
 ## Trade-offs vs the Vanilla Stack
 
-|                  | Vanilla (`STACK.md`)          | Svelte (`STACK-SVELTE.md`)                  |
-| ---------------- | ----------------------------- | ------------------------------------------- |
-| Rendering        | None (bring your own)         | Svelte compiler                             |
-| Component model  | Manual DOM / Web Components   | `.svelte` single-file components            |
-| Local state      | Manual                        | Svelte runes (`$state`, `$derived`)         |
-| Shared state     | nanostores                    | Svelte runes in `.svelte.ts` files          |
-| CSS              | lightningcss on `.css` files  | lightningcss on all styles via `vitePreprocess()` |
-| Micro-animations | CSS / WAAPI                   | Svelte `transition:` / `animate:` directives |
-| Portability      | High — no framework lock-in   | Medium — components are Svelte-specific     |
-| DX               | Explicit, verbose             | Ergonomic, low boilerplate                  |
-| Bundle overhead  | Zero runtime                  | ~2–4kb Svelte runtime                       |
+|                  | Vanilla (`STACK.md`)         | Svelte (`STACK-SVELTE.md`)                        |
+| ---------------- | ---------------------------- | ------------------------------------------------- |
+| Rendering        | None (bring your own)        | Svelte compiler                                   |
+| Component model  | Manual DOM / Web Components  | `.svelte` single-file components                  |
+| Local state      | Manual                       | Svelte runes (`$state`, `$derived`)               |
+| Shared state     | nanostores                   | Svelte runes in `.svelte.ts` files                |
+| CSS              | lightningcss on `.css` files | lightningcss on all styles via `vitePreprocess()` |
+| Micro-animations | CSS / WAAPI                  | Svelte `transition:` / `animate:` directives      |
+| Portability      | High — no framework lock-in  | Medium — components are Svelte-specific           |
+| DX               | Explicit, verbose            | Ergonomic, low boilerplate                        |
+| Bundle overhead  | Zero runtime                 | ~2–4kb Svelte runtime                             |
